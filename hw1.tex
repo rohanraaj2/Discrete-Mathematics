@@ -1,0 +1,121 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{venndiagram}
+
+% Header and footer.
+\pagestyle{headandfoot}
+\runningheadrule
+\runningfootrule
+\runningheader{CS 113 Discrete Mathematics}{HW 1: Sets}{Spring 2022}
+\runningfooter{}{Page \thepage\ of \numpages}{}
+\firstpageheader{}{}{}
+
+\boxedpoints
+\printanswers
+
+\newcommand\union\cup
+\newcommand\inter\cap
+
+\title{Homework 1: Sets\\ CS 113 Discrete Mathematics}
+\author{upper-bound}  % replace with your team name
+\date{Habib University -- Spring 2022}
+
+\begin{document}
+\maketitle
+
+\begin{questions}
+
+\question[5]
+  Write down $\mathcal{P}(X)$ if 
+  $ X = \{ \emptyset, \{\alpha, \beta, \gamma \}, \gamma, \{\{ \alpha, \beta \} \} \}$.
+
+\question
+  \begin{parts}
+  \part[5] 
+    Assume that RO has asked for your help to generate a set that contains all the possible pairs of DSSE faculty and DSSE courses at Habib University. Describe the sets and set operations that you can use to provide RO the desired set.
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+    
+  \part[5] Imagine that the the operation above is extended to include an additional set that contains all the time slots when a course can be scheduled. Describe the set obtained as an outcome of the operation.
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+
+  \end{parts}
+  
+\question
+  The \textit{symmetric difference} of two sets $A$ and $B$ is defined as
+  \[
+    A\oplus B = (A-B) \union (B-A).
+  \]
+  It is also known as the \textit{disjunctive union} as it contains all those elements which are in either of those sets, but not in their intersection. 
+  \begin{parts}
+  \part[5] Prove that $A\oplus B = (A \union B)-(A \inter B).$
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+
+  \part[5] For three sets $A, B,$ and $C$, the symmetric difference is defined as
+    \[
+      A\oplus B\oplus C = (A\oplus B)\oplus C,
+    \]
+    i.e. the two-set definition is applied twice. Draw the Venn diagram of this set.
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+
+  \part[5] Using the insights from above, express $A\oplus B\oplus C$ in the same manner as given in part a). That is, using the basic set operations: union, intersection, and complement. Show your working.
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+
+  \end{parts}
+
+\question
+  Let $A$ be the set of all numbers that are divisible by 6 and $B$ the set of all numbers that are divisible by $10$.
+
+  \begin{parts}
+  \part[5] Write the sets $A$ and $B$ in set notation and describe $A \inter B$ as simply as possible.
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+
+  \part[10] Describe the set $A \oplus B$, i.e. the symmetric difference of $A$ and $B$, using set notation. Provide a proof that the set you indicate is indeed the symmetric difference of $A$ and $B$.
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+
+  \part[5] Given $U = \{x\in \mathbb{N} \mid x \leq 60 \}$, list the elements of $A$, $B$, and $A \oplus B$ 
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+
+  \end{parts}
+
+\question
+  Show that $\overline{ A \union \overline{B}} = \overline{A} \inter B$.
+  \begin{parts}
+    
+  \part[5] by using set identities.
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+    
+  \part[5] by proving that each set is a subset of the other.
+    \begin{solution}
+      % Enter your solution here.
+    \end{solution}
+
+  \end{parts}
+\end{questions}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
