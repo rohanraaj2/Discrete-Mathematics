@@ -57,6 +57,23 @@
   \part[5] Prove that $A\oplus B = (A \union B)-(A \inter B).$
     \begin{solution}
       % Enter your solution here.
+      We know that the symmetric difference of A and B is defined as:
+      \newline $ = (A \inter B^{C}) \union (B \inter A^{C}) $
+      \newline Applying Distributive Law:
+      \newline $ = ( A \union (B \inter A^{C})) \inter ( B^{C} \union (B \inter A^{C}))$
+      \newline Applying Distributive Law again
+      \newline $ = ((A \union B) \inter (A \union A^{C})) \inter ((B^{C} \union B) \inter (B^{C} \union A^{C}))$
+      \newline Applying Complement Law 
+      \newline $ = ((A \union B) \inter U) \inter (U \inter (B^{C} \union A^{C}))$
+      \newline Applying Cumulative Law
+      \newline $ = (A \union B) \inter (A^{C} \union B^{C})$
+      \newline Applying De Morgan's Law
+      \newline $ = (A \union B) \inter (A \inter B)^{C}$
+      \newline Therefore, it can be also written as:
+      \newline $ = (A \union B) - (A \inter B)^{C}$
+      \newline Therefore it is proved: $A\oplus B = (A \union B)-(A \inter B).$
+
+
     \end{solution}
 
   \part[5] For three sets $A, B,$ and $C$, the symmetric difference is defined as
