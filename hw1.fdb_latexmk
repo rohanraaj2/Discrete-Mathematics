@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1643807420 "c:/Users/HP/OneDrive/Documents/GitHub/hw1.tex" "hw1.pdf" "hw1" 1643807422
+["pdflatex"] 1643807481 "c:/Users/HP/OneDrive/Documents/GitHub/hw1.tex" "hw1.pdf" "hw1" 1643807482
   "C:/Users/HP/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1643654868 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/HP/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1643654833 10242053 0913a7b41bd03355978cc242205ae3cd ""
   "C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -128,9 +128,9 @@
   "C:/Users/HP/AppData/Local/Programs/MiKTeX/tex/latex/venndiagram/venndiagram.sty" 1528474733 44921 68425021e191581ba7c1cad615eb0f66 ""
   "C:/Users/HP/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1636284872 56029 3f7889dab51d620aa43177c391b7b190 ""
   "C:/Users/HP/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1623005690 4902 efb3d66683a2da2a232f71e3a571a899 ""
-  "c:/Users/HP/OneDrive/Documents/GitHub/hw1.tex" 1643807420 4637 30b4d8778d8c7b687dd0db46b9d13ecd ""
-  "hw1.aux" 1643807421 1914 2859ba4782862ade2a1c4b9b579b54b9 "pdflatex"
-  "hw1.tex" 1643807420 4637 30b4d8778d8c7b687dd0db46b9d13ecd ""
+  "c:/Users/HP/OneDrive/Documents/GitHub/hw1.tex" 1643807480 4627 4991983a6a36bbc16da9d932af0f7ddc ""
+  "hw1.aux" 1643807482 1914 2859ba4782862ade2a1c4b9b579b54b9 "pdflatex"
+  "hw1.tex" 1643807480 4627 4991983a6a36bbc16da9d932af0f7ddc ""
   (generated)
   "hw1.aux"
   "hw1.log"
