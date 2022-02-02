@@ -32,6 +32,10 @@
   Write down $\mathcal{P}(X)$ if 
   $ X = \{ \emptyset, \{\alpha, \beta, \gamma \}, \gamma, \{\{ \alpha, \beta \} \} \}$.
 
+  Set X contains 4 elements.
+  $|$P(X)$|$ = 2\^(4)\ = 16
+
+  $ P(X) = \{ \emptyset, \{ \{\alpha, \beta, \gamma \} \}, \{ \gamma \}, \{ \{\{ \alpha, \beta \} \} \}, \{ \emptyset, \{\alpha, \beta, \gamma \} \}, \{\emptyset, \gamma \}, \{ \emptyset, \{ \{ \alpha, \beta \} \} \} \}, \{ \{ \alpha, \beta, \gamma \}, \gamma \}, \{ \{ \alpha, \beta, \gamma \}, \{ \{ \alpha, \beta \} \} \}, \newline \{ \gamma, \{ \{ \alpha, \beta \} \} \}, \{ \emptyset, \{ \alpha, \beta, \gamma \}, \gamma \}, \{ \emptyset, \{ \alpha, \beta, \gamma \}, \{ \{ \alpha, \beta \} \} \}, \{ \{ \alpha, \beta, \gamma \}, \gamma, \{ \{ \alpha, \beta \} \} \}, \{ \emptyset \}, \{ \emptyset, \{ \{ \alpha, \beta \} \}, \gamma \}, \{ \emptyset, \{ \alpha, \beta, \gamma \}, \newline \gamma, \{ \{ \alpha, \beta \} \} \} \}$
 \question
   \begin{parts}
   \part[5] 
@@ -57,23 +61,6 @@
   \part[5] Prove that $A\oplus B = (A \union B)-(A \inter B).$
     \begin{solution}
       % Enter your solution here.
-      We know that the symmetric difference of A and B is defined as:
-      \newline $ = (A \inter B^{C}) \union (B \inter A^{C}) $
-      \newline Applying Distributive Law:
-      \newline $ = ( A \union (B \inter A^{C})) \inter ( B^{C} \union (B \inter A^{C}))$
-      \newline Applying Distributive Law again
-      \newline $ = ((A \union B) \inter (A \union A^{C})) \inter ((B^{C} \union B) \inter (B^{C} \union A^{C}))$
-      \newline Applying Complement Law 
-      \newline $ = ((A \union B) \inter U) \inter (U \inter (B^{C} \union A^{C}))$
-      \newline Applying Cumulative Law
-      \newline $ = (A \union B) \inter (A^{C} \union B^{C})$
-      \newline Applying De Morgan's Law
-      \newline $ = (A \union B) \inter (A \inter B)^{C}$
-      \newline Therefore, it can be also written as:
-      \newline $ = (A \union B) - (A \inter B)^{C}$
-      \newline Therefore it is proved: $A\oplus B = (A \union B)-(A \inter B).$
-
-
     \end{solution}
 
   \part[5] For three sets $A, B,$ and $C$, the symmetric difference is defined as
@@ -83,38 +70,11 @@
     i.e. the two-set definition is applied twice. Draw the Venn diagram of this set.
     \begin{solution}
       % Enter your solution here.
-            % Required packages
-            \begin{tikzpicture}
-              \def\firstcircle{(90:1.8) circle[radius = 2.4]}
-              \def\secondcircle{(210:1.8) circle[radius = 2.4]}
-              \def\thirdcircle{(330:1.8) circle[radius = 2.4]}
-            
-              \draw (0, 5.5) node {\Large $(A \bigtriangleup B) \bigtriangleup C$};
-              \draw[thick] (-5, -3.7) rectangle (5, 4.6);
-            
-              \fill[even odd rule, gray] \firstcircle \secondcircle \thirdcircle;
-              \draw[thick] \firstcircle \secondcircle \thirdcircle;
-            
-              %\node[fill = white, shape = circle] (0,0);
-              % Reference used: https://tex.stackexchange.com/questions/329371/how-i-draw-the-symmetrical-difference-of-three-sets-with-venn-diagrams-using-tik
-            \end{tikzpicture}
-
-       
     \end{solution}
 
   \part[5] Using the insights from above, express $A\oplus B\oplus C$ in the same manner as given in part a). That is, using the basic set operations: union, intersection, and complement. Show your working.
     \begin{solution}
       % Enter your solution here.
-      From Q3 part(a), we know that:
-      \newline $A\oplus B = (A \union B)-(A \inter B). $
-      \newline Therefore, Let the set D be, where 
-      \newline $ D = \{ x | $ where x is the symmetric difference of the sets A and B $\}$
-      \newline Therefore Equation 1, it can be written as:
-      \newline $ D\oplus C = (D \union C) \inter (D \inter C)^{C}.$
-      \newline Which leads us to:
-      \newline $ D\oplus C = (D \union C) - (D \inter C)$
-      \newline As $ D  = (A \union B) - (A \inter B)$, substituting D in Equation 1:
-      \newline $A\oplus B\oplus C = (((A \union B) - (A \inter B)) \union C) - (((A \union B) - (A \inter B)) \inter C).$
     \end{solution}
 
   \end{parts}
@@ -126,34 +86,16 @@
   \part[5] Write the sets $A$ and $B$ in set notation and describe $A \inter B$ as simply as possible.
     \begin{solution}
       % Enter your solution here.
-      Let there be two sets, A and B, where:
-      \newline $ A = \{ x | $ where x $\in$ multiples of $6 \}$
-      \newline $ B = \{ x | $ where x $\in$ multiples of $10 \}$
-      \newline $ A \inter B = \{ X | $ where x $\epsilon$ multiples of $30 \}$
     \end{solution}
 
   \part[10] Describe the set $A \oplus B$, i.e. the symmetric difference of $A$ and $B$, using set notation. Provide a proof that the set you indicate is indeed the symmetric difference of $A$ and $B$.
     \begin{solution}
       % Enter your solution here.
-      Since $ A \oplus B$ means $x \not\in A \inter B$
-      \newline It can be also written as through the definition of intersection:
-      \newline $ (x \in A \land x\not\in B) \lor (x \not\in A \land x\in B) $
-      \newline By the definition of Difference, it can be writted as:
-      \newline $ (x \in (A-B)) \lor (x \in (B-A))$
-      \newline OR is also referred as Union, so by the definition of Union:
-      \newline $ x \in (A-B) \union (B-A)$
-      \newline The set $A\oplus B$ is known as a disjunctive union which contains all the elements except the ones 
-      that are in both the sets, i.e. intersection. Therefore, $A \oplus B$ will contain all the elements that are divisible by either
-      6 or 10 but it will exclude all those elements that will be divisible by both, 6 and 10. 
-      \newline $ A\oplus B = \{ x | (x \in x \mod{6} = 0 \land x \not\in \mod{10} = 0) \lor (x \not\in x \mod{6} = 0 \land x \in x \mod{10} = 0 ) \} $ 
     \end{solution}
 
   \part[5] Given $U = \{x\in \mathbb{N} \mid x \leq 60 \}$, list the elements of $A$, $B$, and $A \oplus B$ 
     \begin{solution}
       % Enter your solution here.
-      $ A = \{ 6, 12, 18, 24, 30, 36, 42, 48, 54, 60 \}$
-      \newline $ B =  \{ 10, 20, 30, 40, 50, 60 \}$
-      \newline $ A \oplus B = \{ 6, 10, 12, 18, 20, 24, 36, 40, 42, 48, 50, 54 \}$
     \end{solution}
 
   \end{parts}
@@ -174,9 +116,6 @@
 
   \end{parts}
 \end{questions}
-
-1) Venn Diagram help taken by: https://tex.stackexchange.com/questions/329371/how-i-draw-the-symmetrical-difference-of-three-sets-with-venn-diagrams-using-tik
-
 
 \end{document}
 
