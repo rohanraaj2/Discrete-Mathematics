@@ -40,13 +40,14 @@
         \begin{array}{c|c|*{6}{|c}}
           p & q & p \lor q & \neg(p \lor q) & \neg p & \neg q & \neg p \land \neg q & (\neg(p \lor q)) \iff (\neg p \land \neg q)\\
           \hline
-          F & F &  &  &  &  &  &  \\
-          F & T &  &  &  &  &  &  \\
-          T & F &  &  &  &  &  &  \\
-          T & T &  &  &  &  &  &  
+          F & F & F & T & T & T & T & T \\
+          F & T & T & F & T & F & F & T \\
+          T & F & T & F & F & T & F & T \\
+          T & T & T & F & F & F & F & T 
         \end{array}
       \]
-      
+      They are logically equivalent since $\neg(p \lor q)$ and $ \neg(p) \land \neg(q)$ have the same truth values.
+      This can also be proved by De Morgan's Law.
     \end{solution}
 
   \part[5] $ (p \lor q) \implies \neg r \equiv (\neg p \land \neg q) \land \neg r$.
@@ -64,16 +65,17 @@
         \begin{array}{*{3}{c|}*{8}{|c}}
           p & q & r & \lnot p & \lnot q & \lnot r & p \lor q & \lnot p \land \lnot q & A & B & A \iff B\\
           \hline
-          F & F &  &  &  &  &  &  &  &  &  \\
-          F & F &  &  &  &  &  &  &  &  &  \\
-          F & T &  &  &  &  &  &  &  &  &  \\
-          F & T &  &  &  &  &  &  &  &  &  \\
-          T & F &  &  &  &  &  &  &  &  &  \\
-          T & F &  &  &  &  &  &  &  &  &  \\
-          T & T &  &  &  &  &  &  &  &  &  \\
-          T & T &  &  &  &  &  &  &  &  &  
+          F & F & F & T & T & T & F & T & T & T & T \\
+          F & F & T & T & T & F & F & T & T & F & F \\
+          F & T & F & T & F & T & T & F & T & F & F \\
+          F & T & T & T & F & F & T & F & F & F & T \\
+          T & F & F & F & T & T & T & F & T & F & F \\
+          T & F & T & F & T & F & T & F & F & F & T \\
+          T & T & F & F & F & T & T & F & T & F & F \\
+          T & T & T & F & F & F & T & F & F & F & T 
         \end{array}
       \]
+      \newline They are logically not equal as A and B do not have the same truth values in the truth table.
     \end{solution}
     
   \end{parts}
@@ -83,6 +85,10 @@
   \part[5] Identify three simple propositions, $p, q, \text{ and } r$, needed for the representation and write out the corresponding expression that uses them to represent the given sentence.
     \begin{solution}
       % Enter your solution here.
+      p : A person is popular
+      \newline q : A person is cool
+      \newline r : A person is funny
+      \newline $p \implies q \lor r$
     \end{solution}
   \part[5] For your expression identified above, write the converse, contrapositive, and inverse in propositional logic as well as complete English sentences.
     \begin{solution}
@@ -90,9 +96,9 @@
       % Part of the table is given here for your convenience.
       \begin{tabularx}{\textwidth}{l|l|X}
         & Logical Notation & English sentence \\\hline\hline
-        Converse &   & \\\hline
-        Contrapositive &  & \\\hline
-        Inverse &  &  
+        Converse & $(q \lor r) \implies p$  & A person is cool or funny only if they are popular. \\\hline
+        Contrapositive & $\neg (q \lor r) \implies \neg(p)$ & A person is not funny or not cool if they are not popular\\\hline
+        Inverse & $\neg(p) \implies \neg(q \lor r)$ & A person is not popular if they are not cool or not funny.   
       \end{tabularx}
 
     \end{solution}
@@ -139,10 +145,10 @@
       % Part of the table is given here for your convenience.
     \begin{tabularx}{\textwidth}{c|c|X}
       Card & Turned & Explanation \\\hline\hline
-      $A$ &  & \\\hline
-      $5$ &  & \\\hline
-      $2$ &  & \\\hline
-      $J$ &  & 
+      $A$ & No & It has neither J nor 5\\\hline
+      $5$ & Yes & Has 5, so J needs to be there, so checked\\\hline
+      $2$ & No & Has neither J nor 5\\\hline
+      $J$ & Yes Has J, so 5 has to be there& 
     \end{tabularx}
     
   \end{solution}
