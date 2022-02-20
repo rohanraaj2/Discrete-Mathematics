@@ -124,11 +124,11 @@
     % Part of the table is given here for your convenience.
     \begin{tabularx}{\textwidth}{l|l|X}
       Constraint & Satisfied & Explanation \\\hline\hline
-      aluminum $\lor$ copper $\lor$ iron & & \\
-      aluminum $\implies$ grey &  &  \\\hline
-      copper $\land$ $\neg$ coated $\implies$ red &  &  \\\hline
-      coated $\land$ $\neg$ copper $\implies$ green &  &  \\\hline
-      green $\lor$ blue $\iff \neg$ textured $\land$ $\neg$ iron &  & 
+      aluminum $\lor$ copper $\lor$ iron & Satisfied & Since the metal is copper, it satisfies the truth value\\
+      aluminum $\implies$ grey & Satisfied & Since the metal is copper, the order does not contradict with it. \\\hline
+      copper $\land$ $\neg$ coated $\implies$ red & Satisfied & Since the metal is copper, and the finish is not coated (is matte) so red color does not contradict \\\hline
+      coated $\land$ $\neg$ copper $\implies$ green & Not satisfied & Since the metal is copper, and not coated, the order contradicts as color is green \\\hline
+      green $\lor$ blue $\iff \neg$ textured $\land$ $\neg$ iron & Satisfied & Since the order's colors are both green and blue, they are not textured and has no iron as well, so order doesn't contradict with constraints. 
     \end{tabularx}
   \end{solution}
 
@@ -161,27 +161,56 @@
       % Part of the structure is given here for your convenience.
       The simple propositions are as follows.\\
       \begin{tabularx}{\textwidth}{l@{ : }X}
-        $p$ & \\ % state the atomic proposition
-        $q$ & % state the atomic proposition
+        $p$ & I am wealthy\\ % state the atomic proposition
+        $q$ & I am happy% state the atomic proposition
       \end{tabularx}
 
       The argument is
       \[
         \begin{array}{l}
-          \text{enter the premise in logical notation}\\
-          \text{enter the premise in logical notation}\\\hline
-          \text{enter the conclusion in logical notation}\\
+          p \implies q\\
+          q\\\hline
+          p\\
         \end{array}
       \]
+
+      The conlusion p cannot be inferred from its premise. Therefore, the argument is invalid since there is no evidence in the table of rules of inference.
     \end{solution}
   \part[5]
     If Ahmed drives his car, he is at least 18 years old. Ahmed does not drive a car. Therefore, Ahmed is not yet 18 years old. 
     \begin{solution}
       % Enter your solution here.
+      p : Ahmed drives his car
+      q : He is atleast 18 years old
+
+      The argument is
+      \[
+        \begin{array}{l}
+          p \implies q\\
+          \neg p\\\hline
+          \neg q\\
+        \end{array}
+      \]
+      The conclusion $\neg q$ can be inferred from its premise. The statement is logically correct as \textit{Modus Tollens}
+      
     \end{solution}
   \part[5] If I study, then I will not fail CS 113. If I do not play cards too often, then I will study. I failed CS 113. Therefore, I played cards too often.
     \begin{solution}
       % Enter your solution here.
+      p : I study
+      q : I will fail CS 113
+      r : I play cards too often
+
+      The argument is
+      \[
+        \begin{array}{l}
+          p \implies \neg q\\
+          \neg r \implies p\\
+          \neg q\\ \hline
+          r\\
+        \end{array}
+      \]
+      The statement is logically incorrect as the conclusion $r$ cannot be inferred from its premise.
     \end{solution}
   \end{parts}
 
@@ -200,6 +229,31 @@
   Identify the relevant simple propositions to model the above in propositional logic. Represent the above situation using propositional logic and describe the steps needed to infer the location of the manual.
   \begin{solution}
     % Enter your solution here.
+    The propositions are assigned as:
+    \newline$a$ : There is a hint at Learn Courtyard
+    \newline$b$ : There is a hint at the Gym
+    \newline$c$ : the TA is sitting at Ehsas center
+    \newline$d$ : the TA is absent
+    \newline$e$ : There are people in the Learn Courtyard
+    \newline$f$ : The manual is at the Zen Garden
+    \newline$g$ : The manual is at Earth Courtyard
+    \newline$h$ : The manual is at Fire Courtyard
+
+    The given information is provided as:
+    \newline $a \lor b$
+    \newline $(c \lor d) \implies a$
+    \newline $\neg c \implies b$
+    \newline $e \implies \neg a$
+    \newline $a \implies f$
+    \newline $b \implies g$
+    \newline $d \implies h$
+
+    We will then analyze the information provided, i.e., we see people sitting in the courtyard.
+    Therefore, we can infer that there is no hint at the Learn Courtyard. Since we know that the hint 
+    is either at the Gym or the Learn Courtyard, we get to know that the hint is at the Gym since it is Not
+    at the Learn Courtyard. Further, we get to know that since the hint is at the Gym, the manual is at the Earth Courtyard.
+
+    The manual is at the Earth Courtyard.
   \end{solution}
 
 \question[5] A TV channel is reporting a terrorist attack on a shopping mega-mall. The mega-mall website claims that the mall closes only in case of an attack. It is known that a sale is on whenever the mega-mall is open, and that many people come when there is a sale. A crime expert explained that in case of an attack, neighbors end up hearing firing sounds and calls are made to the local police. Phone logs indicate no recent calls to the police.
