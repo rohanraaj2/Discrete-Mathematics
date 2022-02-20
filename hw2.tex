@@ -148,7 +148,7 @@
       $A$ & No & It has neither J nor 5\\\hline
       $5$ & Yes & Has 5, so J needs to be there, so checked\\\hline
       $2$ & No & Has neither J nor 5\\\hline
-      $J$ & Yes Has J, so 5 has to be there& 
+      $J$ & Yes & Has J, so 5 has to be there
     \end{tabularx}
     
   \end{solution}
@@ -337,7 +337,7 @@
       \newline Let M(x) denote ``x can have Pakistani citizenship''
       \newline Let I(x) denote ``x can have Indian citizenship''
       \newline Formal Notation:
-      \newline $\neg(\exists) x (M(x) \land I(x))$
+      \newline $\neg \exists x (M(x) \land I(x))$
 
       Negation of the statement in formal notation:
       \newline $\exists x (M(x) \land I(x))$
@@ -352,7 +352,7 @@
       \newline Let R(x) denote ``x goes to the recitations''
       \newline Let B(x) denote ``x is badly prepared for the exams''
       \newline Formal Notation:
-      \newline $(\forall x (H(x) \land R(x))) \implies \neg(\exists)B(x)$
+      \newline $(\forall x (H(x) \land R(x))) \implies \neg \exists B(x)$
 
       Negation of the statement in formal notation:
       \newline $\exists x (H(x) \land R(x))) \implies \exists \neg B(x)$
@@ -369,10 +369,10 @@
       \newline Let N(x) denote ``x is number of exercises''
       \newline Let B(x) denote ``x is the number of sections of the book''
       \newline Formal Notation:
-      \newline $\neg(\exists) x (S(x) \land (\exists(N(x)) \land (\forall(B(X)))))$
+      \newline $\neg \exists x (S(x) \land \exists(N(x)) \land \forall(B(X)))$
 
       Negation of the statement in formal notation:
-      \newline $\exists x (S(x) \land (\exists(N(x)) \land (\forall(B(X)))))$
+      \newline $\exists x (S(x) \land \exists(N(x)) \land \forall(B(X)))$
 
       Negated Statement as a statement in English:
       \newline There is a student who has solved at least one exercise in every section of the book.
@@ -384,10 +384,10 @@
       \newline Let C(x) denote ``x has climbed''
       \newline Let N(x) denote ``x is number of mountains in Pakistan''
       \newline Formal Notation:
-      \newline $\neg(\exists) x (C(x) \land (\forall (N(x))))$
+      \newline $\neg \exists x (C(x) \land \forall (N(x)))$
 
       Negation of the statement in formal notation:
-      \newline $\exists x (C(x) \land (\forall (N(x))))$
+      \newline $\exists x (C(x) \land \forall (N(x)))$
 
       Negated Statement as a statement in English:
       \newline There is someone who has climbed every mountain in Pakistan.
@@ -420,12 +420,16 @@
   \begin{parts}
   \part[5] At least one mail message can be saved if there is a disk with more than 10KB of free space.
     \begin{solution}
-      % Enter your solution here.
+      \newline Let M(x) denote ``x is the number of mail messages that can be saved''
+      \newline Let S(x) denote ``x is a disk with more than 10KB of free space''
+      \newline $\exists x (S(x) \rightarrow M(x))$
     \end{solution}
 
   \part[5] The system mailbox can be accessed by everyone in the group if the file system is locked.
     \begin{solution}
-      % Enter your solution here.
+      \newline Let M(x) denote ``x is the number of people in the group that can access system mailbox''
+      \newline Let L(x) denote ``x is the locked file system''
+      \newline $\exists x (L(x) \rightarrow \forall x (M(x)))$
     \end{solution}
   \end{parts}
 
