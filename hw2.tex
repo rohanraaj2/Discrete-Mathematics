@@ -10,7 +10,7 @@
 \pagestyle{headandfoot}
 \runningheadrule
 \runningfootrule
-\runningheader{CS/MATH 113}{HW 2: Logic}{Solved by \theauthor}
+\runningheader{CS/MATH 113}{HW 2: Logic}{Solved by \theauthor isomorphic-predicate}
 \runningfooter{}{Page \thepage\ of \numpages}{}
 \firstpageheader{}{}{}
 
@@ -46,8 +46,8 @@
           T & T & T & F & F & F & F & T 
         \end{array}
       \]
-      They are logically equivalent since $\neg(p \lor q)$ and $ \neg(p) \land \neg(q)$ have the same truth values.
-      This can also be proved by De Morgan's Law.
+      They are logically equivalent since $\neg(p \lor q)$ and $ \neg(p) \land \neg(q)$ have the same truth values and there is a tautology.
+      \newline $ \implies (\neg(p \lor q) \equiv (\neg q \land \neg p))$.
     \end{solution}
 
   \part[5] $ (p \lor q) \implies \neg r \equiv (\neg p \land \neg q) \land \neg r$.
@@ -75,7 +75,8 @@
           T & T & T & F & F & F & T & F & F & F & T 
         \end{array}
       \]
-      \newline They are logically not equal as A and B do not have the same truth values in the truth table.
+      \newline $A \iff B$ is not a tautology as A and B do not have the same truth values in the truth table.
+      \newline $\implies A \not \equiv B$ 
     \end{solution}
     
   \end{parts}
@@ -88,7 +89,7 @@
       p : A person is popular
       \newline q : A person is cool
       \newline r : A person is funny
-      \newline $p \implies q \lor r$
+      \newline $p \implies (q \lor r)$
     \end{solution}
   \part[5] For your expression identified above, write the converse, contrapositive, and inverse in propositional logic as well as complete English sentences.
     \begin{solution}
@@ -97,8 +98,8 @@
       \begin{tabularx}{\textwidth}{l|l|X}
         & Logical Notation & English sentence \\\hline\hline
         Converse & $(q \lor r) \implies p$  & A person is cool or funny only if they are popular. \\\hline
-        Contrapositive & $\neg (q \lor r) \implies \neg(p)$ & A person is not funny or not cool if they are not popular\\\hline
-        Inverse & $\neg(p) \implies \neg(q \lor r)$ & A person is not popular if they are not cool or not funny.   
+        Contrapositive & $(\neg q \land \neg r) \implies \neg(p)$ & A person is not funny and not cool only if they are not popular \\\hline
+        Inverse & $\neg(p) \implies (\neg q \lor \neg r)$ & A person is not popular only if they are neither cool nor funny    
       \end{tabularx}
 
     \end{solution}
@@ -117,6 +118,7 @@
   \part[5] Using the propositions above, express the order as a compound proposition in logical notation.
     \begin{solution}
       % Enter your solution here.
+      $copper \land (green \land blue) \land matte$ 
     \end{solution}
   \part[5] Determine which constraints are satisfied and which are violated for the order, and provide an explanation.
   \begin{solution}
@@ -124,11 +126,11 @@
     % Part of the table is given here for your convenience.
     \begin{tabularx}{\textwidth}{l|l|X}
       Constraint & Satisfied & Explanation \\\hline\hline
-      aluminum $\lor$ copper $\lor$ iron & Satisfied & Since the metal is copper, it satisfies the truth value\\
-      aluminum $\implies$ grey & Satisfied & Since the metal is copper, the order does not contradict with it. \\\hline
-      copper $\land$ $\neg$ coated $\implies$ red & Satisfied & Since the metal is copper, and the finish is not coated (is matte) so red color does not contradict \\\hline
-      coated $\land$ $\neg$ copper $\implies$ green & Not satisfied & Since the metal is copper, and not coated, the order contradicts as color is green \\\hline
-      green $\lor$ blue $\iff \neg$ textured $\land$ $\neg$ iron & Satisfied & Since the order's colors are both green and blue, they are not textured and has no iron as well, so order doesn't contradict with constraints. 
+      aluminum $\lor$ copper $\lor$ iron & Satisfied & Since the metal is copper is True, it satisfies the truth value\\
+      aluminum $\implies$ grey & Satisfied & Since the metal is copper, the order does not contradict with it. The implication is satisfied as both aluminium and grey are False \\\hline
+      copper $\land$ $\neg$ coated $\implies$ red & Not Satisfied & The implication is not satisfied as the antecedent is True, but the consequent is False \\\hline
+      coated $\land$ $\neg$ copper $\implies$ green & Satisfied & Since the metal is copper, and not coated, the order does not contradict as color is green is True, while the antecedentsa are False \\\hline
+      green $\lor$ blue $\iff \neg$ textured $\land$ $\neg$ iron & Satisfied & Since the order's colors are both green and blue so the biconditional is satisfied as both sides have True values, they are not textured and has no iron as well, so order doesn't contradict with constraints. 
     \end{tabularx}
   \end{solution}
 
@@ -141,14 +143,16 @@
   \end{center}
   Explain your choice.
   \begin{solution}
-
+    The rule can be written as: $5 \implies J$, where 5 means the sign on one side of the cards
+    and J means the other side. 
+    Below, Yes means that the card needs to be turned, while No means otherwise
       % Part of the table is given here for your convenience.
     \begin{tabularx}{\textwidth}{c|c|X}
       Card & Turned & Explanation \\\hline\hline
-      $A$ & No & It has neither J nor 5\\\hline
-      $5$ & Yes & Has 5, so J needs to be there, so checked\\\hline
-      $2$ & No & Has neither J nor 5\\\hline
-      $J$ & Yes & Has J, so 5 has to be there
+      $A$ & Yes & The consequent of the implication is False. \newline Whenever this is the case, the implication's truth \newline value depends on the antecedent. If there is 5 on the \newline other side, and A on the other, the implication will \newline be False. Therefore this card needs to be turned to \newline verify the rule\\\hline
+      $5$ & Yes & Has 5, so J needs to be there, so checked to verify the \newline rule. Since the 5 is there, the antecedent is True, and \newline if the J is there on the consequent will be True, \newline so the rule will be verfied so it needs to be turned.\\\hline
+      $2$ & No & Has not 5 on the side. Therefore, the antecedent is False. \newline Therefore, the implication is False already regardless \newline of J coming there or not. Because it can neither \newline prove or disprove the rule.\\\hline
+      $J$ & No & Has J, although the consequent is verified, it is not \newline necessary according to the rule that if J is there, so \newline always there should be a 5. So the number on the \newline other side will make no effect on the validity of the \newline rule.
     \end{tabularx}
     
   \end{solution}
@@ -162,9 +166,9 @@
       The simple propositions are as follows.\\
       \begin{tabularx}{\textwidth}{l@{ : }X}
         $p$ & I am wealthy\\ % state the atomic proposition
-        $q$ & I am happy% state the atomic proposition
+        $q$ & I am happy% state the atomic proposition  
       \end{tabularx}
-
+      
       The argument is
       \[
         \begin{array}{l}
@@ -174,7 +178,9 @@
         \end{array}
       \]
 
-      The conlusion p cannot be inferred from its premise. Therefore, the argument is invalid since there is no evidence in the table of rules of inference.
+      The conlusion p cannot be inferred from its premise and it can be confirmed by making the truth tables to proof it is not a tautology. Therefore, the argument is invalid since there is no evidence in the table of rules of inference.
+      \newline This form of fallacy can be called, 'affirming the consequent.'
+      \newline There is no information about any inference from q and conclusion, p, cannot be inferred from the premises.
     \end{solution}
   \part[5]
     If Ahmed drives his car, he is at least 18 years old. Ahmed does not drive a car. Therefore, Ahmed is not yet 18 years old. 
@@ -191,26 +197,34 @@
           \neg q\\
         \end{array}
       \]
-      The conclusion $\neg q$ can be inferred from its premise. The statement is logically correct as \textit{Modus Tollens}
+      The conclusion $\neg q$ cannot be inferred from its premise. The statement is logically incorrect and invalid as 
+      \newline There is no information about any inference from $\neg p$ and the conclusion, $\neg q$ cannot be inferred from the premises.
+      \newline The argument is invalid and this form of fallacy is called 'denying the antecedent.'
       
     \end{solution}
   \part[5] If I study, then I will not fail CS 113. If I do not play cards too often, then I will study. I failed CS 113. Therefore, I played cards too often.
     \begin{solution}
       % Enter your solution here.
-      p : I study
+      p : I study      
       q : I will fail CS 113
       r : I play cards too often
 
       The argument is
       \[
         \begin{array}{l}
-          p \implies \neg q\\
-          \neg r \implies p\\
-          \neg q\\ \hline
+          p \implies \neg q     (1)\\
+          \neg r \implies p     (2)\\
+          \neg q      (3)\\ \hline     
           r\\
+
+          Inferrence : \neg p \\
+          Premises: (1)\land(3) $            (4)$
+          \\
+          \\Inference: r
+          \\Premise: (2)\land(4)   
         \end{array}
       \]
-      The statement is logically incorrect as the conclusion $r$ cannot be inferred from its premise.
+      The statement is logically correct 
     \end{solution}
   \end{parts}
 
@@ -305,6 +319,9 @@
   \part[5] There is a third quantifier often used in predicate logic called the \textit{Uniqueness Quantifier}, $\exists!x\; P(x)$ which is read as, ``$P(x)$ is true for one and only one $x$ in the domain'', or ``there is a \textit{unique} $x$ such that $P(x)$''. Give an example of a propositional function $P(x)$ and a corresponding domain, such that $\exists!x\; P(x)$ is a true proposition.
     \begin{solution}
       % Enter your solution here.
+      Condider domain $\mathbb{Z}$ of integers and the predicate $P(x) : x-1 = 0$.
+      Then the following is true:
+      $\exists !x \in \mathbb{Z} (x-1 = 0)$
     \end{solution}
     
   \part[5] The uniqueness quantifier can be expressed using the other two quantifiers but is still used on its own as it shortens the logical terms. In particular,
@@ -314,6 +331,11 @@
     Express the proposition on the right above in English and explain why it is equivalent to the left hand side, i.e. to the uniquely quantified propositional function. You may explain in words; a formal proof is not yet required.
     \begin{solution}
       % Enter your solution here.
+      The proposition on the right claims that there is an x in the domain for
+      \newline which P(x) is True. And if P(x) is True for any other value y from the domain, y
+      \newline must be the same as x. This is the same as saying that x is the only value in the
+      \newline domain for which P(x) is True. In other words, there is only one x or a unique x in
+      \newline the domain which makes P(x) True.
     \end{solution}
     
   \part[5] Express $\neg \exists!xP\; (x)$ in a similar way as (\ref{eq:uniq}). Provide an expression in formal notation as well as in English. Also, give an example of a true proposition $\neg\exists!x\; P(x)$ by slightly changing the one you gave in part (a).
@@ -445,21 +467,52 @@
   \part[5] $\forall x \forall y\; (x^2= y^2 \rightarrow x=y)$
     \begin{solution}
       % Enter your solution here.
+      1) 1. If the squares of two integers are equal, then the integers must have already been
+      equal
+      2) 2. This proposition is False. A counterexample is (x, y) : (1, −1). (One counterexample is sufficient to disprove universality.)
+      3. One domain for which the proposition is true is Z
+      +.
     \end{solution}
 
   \part[5] $\forall x \exists y\; (y^2=x)$
     \begin{solution}
       % Enter your solution here.
+      1. Every integer is the square of some integer.
+      2. This proposition is False. A counterexample is x = 2 for which no y ∈ Z can
+      be found to satisfy the statement. (One counterexample is sufficient to disprove
+      universality.)
+      3. One domain for which the proposition is true is R
+      +
+
     \end{solution}
 
   \part[5] $\exists x \forall y\; (x \leq y^2)$
     \begin{solution}
       % Enter your solution here.
+      1. There exists an integer which is less than or equal to the square of any other
+      integer.
+      2. This proposition is True. It is possible to find a value, e.g. x = 0, that makes
+      the proposition True, as 0 ≤ y
+      2
+      for all y ∈ Z. (One example is sufficient to prove
+      existence.)
+      3. One other domain for which the proposition is true is R. But if we take R  
+      + ,
+      then such a number does not exist. In particular for every real number x, you
+      can then find a number y, such that y
+      2 < x.
     \end{solution}
 
   \part[5] $\forall x \forall y\ \exists z\; (x-z=y)$
     \begin{solution}
       % Enter your solution here.
+
+      1. The difference of any 2 integers is an integer.
+      2. This proposition is True. The difference of 2 integers is again an integer.
+      3. O  ne domain for which the proposition is False is Z
+      +. A counterexample for that
+      domain is (x, y) : (5, 7). z would have to be -2 which is not in the domain.
+
     \end{solution}
   \end{parts}
   
