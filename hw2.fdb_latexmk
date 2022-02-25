@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1645815549 "f:/GitHub/hw2-hw2-isomorphic-predicate/hw2.tex" "hw2.pdf" "hw2" 1645815549
+["pdflatex"] 1645815618 "f:/GitHub/hw2-hw2-isomorphic-predicate/hw2.tex" "hw2.pdf" "hw2" 1645815618
   "C:/Users/hp/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1645203067 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/hp/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1643652687 10227045 da959a81aaf8be5f03c029d404977aa7 ""
   "F:/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -56,9 +56,9 @@
   "F:/MiKTeX/tex/latex/titling/titling.sty" 1252048308 7358 95ac619994bd30d405a74f3eca431c84 ""
   "F:/MiKTeX/tex/latex/tools/array.sty" 1636710260 12694 6c23725d50ab9d1e2d3ce482c58ffcf3 ""
   "F:/MiKTeX/tex/latex/tools/tabularx.sty" 1636710260 7147 5ac8a9ef36411064b1a501137af0fa54 ""
-  "f:/GitHub/hw2-hw2-isomorphic-predicate/hw2.tex" 1645815545 25859 f0c587374235e329921750f644501654 ""
-  "hw2.aux" 1645815549 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "hw2.tex" 1645815545 25859 f0c587374235e329921750f644501654 ""
+  "f:/GitHub/hw2-hw2-isomorphic-predicate/hw2.tex" 1645815614 25883 00be1a7c308b0f9977ea597106859d57 ""
+  "hw2.aux" 1645815618 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "hw2.tex" 1645815614 25883 00be1a7c308b0f9977ea597106859d57 ""
   (generated)
   "hw2.aux"
   "hw2.log"
