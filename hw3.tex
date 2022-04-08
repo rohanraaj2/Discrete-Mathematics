@@ -25,7 +25,7 @@
 \graphicspath{{images/}}
 
 \title{Homework 3: Inference and Relations}
-\author{upper-bound}  % replace with your team name
+\author{isomorphic-predicate}  % replace with your team name
 \date{CS/MATH 113 Discrete Mathematics\\Habib University, Spring 2022}
 
 \begin{document}
@@ -48,6 +48,22 @@
     \end{tabular}
     \begin{solution}
       % Write your solution here
+      p = It is Sunday
+      \newline q = we play Cricket
+      \newline r = we play Basketball
+      \newline s = Basketball field is occupied
+      \newline t = we play Volleyball
+      \newline
+      \newline (1) $p \implies q \lor r$ (premise)
+      \newline (2) $s \implies \neg r$ (premise)
+      \newline (3) $p \land s$ (premise)
+      \newline (4) $s$ (simplification by using 3)
+      \newline (5) $\neg r$ (Modus Ponens by using 2 and 5)
+      \newline (6) $p$ (Simplification by using 1)
+      \newline (7) $q \lor r$ (Modus Ponens by using 1 and 7)
+      \newline (8) $q$ (Simplification by using 7)
+      \newline
+      \newline $\therefore q \lor t$ (Addition by using 8) 
     \end{solution}
     
   \part[10]  $ $\\
@@ -61,6 +77,22 @@
 
     \begin{solution}
       % Write your solution here
+      A = x is all students
+      \newline (1) P(x) = x did the homework in every week
+      \newline (2) Q(x) = x passed the course
+      \newline (3) R(x) = x did some of the homework
+      \newline (4) S(x) = x attended every lecture
+      \newline
+      \newline 1. $\neg Q (Ahmed) \land S(Ahmed)$ (premise)
+      \newline 2. $\forall x (P(x) \implies Q(x))$ (premise)
+      \newline 3. $\forall x(Q(x) \implies R(x))$ (premise)
+      \newline 4. $\neg Q(Ahmed)$ (Simplification using 1)
+      \newline 5. $P(a) \implies Q(a)$ (Universal Instantiation by using 2)
+      \newline 6. $\neg P(a)$ (Modus Tollens by using 4 and 5)
+      \newline 7. $\exists (\neg P(a)) $ (Universal Generalization using 6)
+      \newline
+      \newline $\therefore \neg\forall x(P(x))$ (De Morgan's Law using 7)
+
     \end{solution}
   \end{parts}
 
@@ -101,16 +133,25 @@
   \part[5] Can we tile the standard checkerboard using dominoes?
     \begin{solution}
       % Write your solution here
+      Yes, it is possible to do it. The checkerboard is made out of 8x8 tiles which is 64 
+      \newline which is an even number. The dominos are made up of two tiles and their cardiality
+      \newline is even too. Therefore, $64/2 = 32$. So, exactly 32 dominos will be needed. It is upto
+      \newline us if we want to place all of them vertically or horizontally.
     \end{solution}
     
   \part[5] Can we tile a checkerboard obtained by removing one of the four corner squares of a standard checkerboard?
     \begin{solution}
       % Write your solution here
+      No, we cannot do that. Removing 1 tile will leave behind 63 tiles which is an odd number.
+      \newline Since no domino is overlapped or broken into single tiles, it is not possible.
     \end{solution}
     
   \part[5] Can we tile a board obtained by removing both the upper left and the lower right squares of a standard checkerboard? 
     \begin{solution}
       % Write your solution here
+      No it is not possible. Although now we have 62 tiles which is even, the places of
+      \newline tiles missing is not next to each other and the domino can only fill up space in pairs of 2 and
+      \newline cannot be broken. Therefore this cannot be done.
     \end{solution}
   \end{parts}
 
@@ -129,6 +170,17 @@
   above argument to statements in predicate logic and prove its validity.
   \begin{solution}
     % Write your solution here
+    p = Robbery was not the object of the murder
+    \newline q = nothing was taken
+    \newline r = it is politics
+    \newline s = it is woman
+    \newline t = assassin does his work, leaves immediately and leaves no marks
+    (1) $p \implies q$ (premise) 
+    \newline (2) $r \lor s$ (premise)
+    \newline (3) $r \implies t$ (premise)
+    \newline (4) $ \neg t$ (premise)
+    \newline (5) $\neg r$ (Modus Tollens with 3 and 4)
+    \newline $\therefore s$ (Disjunctive Syllogism with 2 and 5)
   \end{solution}
   
   \section{Equivalence Relation}
