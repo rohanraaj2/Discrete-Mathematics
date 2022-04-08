@@ -140,6 +140,7 @@
 
   \begin{solution}
     % Write your solution here
+
   \end{solution}
 
 \question This question refers to the \textit{tiling} or \href{https://en.wikipedia.org/wiki/Tessellation}{\textit{tessellation}} operation.
@@ -232,45 +233,95 @@
     Let $R$ be a relation from a set A to a set B. The \textit{inverse relation} from $B$ to $A$, denoted by $R^{-1}$, is the set of ordered pairs $\{(b, a) \mid (a, b) \in R\}$. The \textit{complementary relation} $\overline{R}$ is the set of ordered pairs $\{(a, b) \mid (a, b) \not\in R\}$. A relation $R$ on the set $A$ is \textit{irreflexive} if $\forall a \in A\colon (a, a) \not\in R$. That is, $R$ is irreflexive if no element in $A$ is related to itself.
   \end{EnvUplevel}
 
-\question 
+  \question 
   \begin{parts}
   \part[5] Show that the relation $R$ on a set $A$ is symmetric if and only if $R = R^{-1}$.
     \begin{solution}
-      % Write your solution here
+
+      $From a set $A$ to $B$, $R$ = \{(a, b) \| a \in $A$ \land $b$ \in $B$. \}
+      \newline
+      Its inverse R^{-1} is \{(b, a)|(a, b) \in R \}
+      \newline
+      (a, b) \in R
+      \newline
+      (b, a) \in R^{-1}
+      \newline
+      a relation is symmteric iff (a, b) \in R \land (b, a) \in R. The relation is symmetric if and only if it is equal to its inverse.
+      \newline
+      R = R^{-1}$
     \end{solution}
 
   \part[5] Show that the relation $R$ on a set $A$ is reflexive if and only if $\overline{R}$ is irreflexive.
     \begin{solution}
-      % Write your solution here
+    
+      $Assuming R is reflexive: R = \{(a, a) \| a \in R\}
+      \newline
+      From definition of complementary relations: (a, b) \notin \overline{R}
+      \newline
+      R is not reflexive, as it does not have anything from
+\{(a, a) \| a \in A \}$
+
     \end{solution}
 
   \part[5] Let $R$ be a relation that is reflexive and transitive. Prove that $R^n = R$ for all positive integers $n$.
     \begin{solution}
-      % Write your solution here
+    
+      $To prove R^n = R, we can prove R^2 = R
+      \newline
+      To prove R^2 \subset R,(x, y) \in R^2
+      \newline
+      R^2 = R \circ R. Therefore, (x, z) \in R,(z, y) \in R
+      \newline
+      Since R is transitive, (x, z) \in R \land (z, y) \in R \implies (x, y) \in R
+      \newline
+      Hence, R^2 \subset R
+      \newline
+      To prove R \subset R^2,(x, y) \in R
+      \newline
+      Since R is transitive, (x, z) \in R \land (z, y) \in R
+      \newline
+      R^2 = R \circ R. Therefore, (x, z) \in R \land (z, y) \in R \implies (x, y) \in R^2.
+      \newline
+      Hence, R \subset R^2
+      $
     \end{solution}
 
   \part[5] Show that the relation $R$ on a set $A$ is transitive if and only if $R^n \subseteq R$ for all positive integers $n$.
     \begin{solution}
-      % Write your solution here
+
+      $Let R^n \subset R for all positive integers. In case, n = 2, R^2 \subset R
+      \newline
+      To prove R is transitive:
+      \newline
+      Let (a, b) \in R and (b, c) \in R
+      \newline
+      Since  (a, c) \in R^2, R^2 \subset R. Therefore, (a, c) \in R.
+      \newline
+      Therefore, R is transitive
+      $
     \end{solution}
 
   \end{parts}
   
-\question  Given the matrix, $M_R$, for a relation, $R$, on a finite set, $A$, explain how to obtain the following matrices?
-  \begin{multicols}{2}
-    \begin{parts}
-    \part[5] $M_{R^{-1}}$
-    \part[5] $M_{\overline{R}}$
-    \end{parts}
-  \end{multicols}
-  \begin{solution}
-    % Write your solutions here
-    \begin{parts}
-    \part 
-    \part 
-    \end{parts}
-  \end{solution}
   
+\question  Given the matrix, $M_R$, for a relation, $R$, on a finite set, $A$, explain how to obtain the following matrices?
+\begin{multicols}{2}
+  \begin{parts}
+  \part[5] $M_{R^{-1}}$
+  \part[5] $M_{\overline{R}}$
+  \end{parts}
+\end{multicols}
+\begin{solution}
+  
+  \begin{parts}
+  \part In order to find the inverse of matrix M, we must swap the elements representing the rows
+  and columns in such a way that the elements representing the rows will be representing the
+  columns in the inverse matrix and elements representing the columns will represent the rows
+  in the inverse matrix. However, the 1s and 0s will not be changed.
+  \part In order to obtain the complement matrix, all the 1s will become 0s and all the 0s in the
+  matrix will become 1s.
+  \end{parts}
+\end{solution}
 \question The following questions refer to the relations, $R$ and $S$, involving the set $X = \{a, b, c\}$. Specifically, $R$ and $S$ are relations on $2^X$, the power set of $X$. For the definitions of $R$ and $S$ given below, prove whether each is an equivalence relation.
   \begin{multicols}{2}
     \begin{parts}
