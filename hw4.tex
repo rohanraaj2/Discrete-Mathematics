@@ -26,7 +26,7 @@
 \graphicspath{{images/}}
 
 \title{Homework 4: Functions, Induction, Graphs}
-\author{upper-bound}  % replace with your team name
+\author{isomorphic-predicate}  % replace with your team name
 \date{CS/MATH 113 Discrete Mathematics\\Habib University, Spring 2022}
 
 \begin{document}
@@ -170,6 +170,29 @@
   \part[5] Given a a relation $R$ that is reflexive and transitive, $R^n = R$ for all positive integers $n$.
     \begin{solution}
       % Write your solution here
+      Let $P(n)$ by the statement $R^n = R$
+      \newline Base Case $n = 1$
+      \newline This case will be true and trivial because $R = R$ is always true as $R^{1} = R$
+      \newline Induction Case: Let us assume that $P(n)$ be true
+      \newline              $R^{n} = R$
+      \newline We need to prove that $P(n+1)$ is also true
+      \newline $R^{n+1} = R^{n} \circ R$
+      \newline         $= R \circ R$
+      \newline
+      \newline Let $(a,b) \in R$
+      \newline Since $R$ is reflexive, $(b,b) \in R$
+      \newline By the definition of composite functions, $(a,b) \in R \circ R = R^{n+1}$
+      \newline         $R \subseteq R^{n+1}$
+      \newline
+      \newline  Let $(a,b) \in R^{n+1} = R \circ R$
+      \newline By the definition of composite: $\exists c \in R: (a,c)$ and $(c, b) \in R$
+      \newline By the definition of transitive: $(a,b) \in R$
+      \newline                     $R^{n+1} \subseteq R$
+      \newline Since $R^{n+1} \subseteq R$ and $R \subseteq R^{n+1}$, we have then shown:
+      \newline $R^{n+1} = R$
+      \newline Thus $P(n+1)$ is true.
+      \newline Therefore, by the principle of mathematical induction, $P(n)$ is true for all positive integers n.
+      \newline Thus, $R^{n} = R$ for all positive integers n.
     \end{solution}
 
   \part[5] A relation $R$ on a set $A$ is transitive if and only if $R^n \subseteq R$ for all positive integers $n$.
