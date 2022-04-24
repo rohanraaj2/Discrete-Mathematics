@@ -196,11 +196,33 @@
     \end{solution}
 
   \part[5] A relation $R$ on a set $A$ is transitive if and only if $R^n \subseteq R$ for all positive integers $n$.
-    \begin{solution}
-      % Write your solution here
-    \end{solution}
-  \end{parts}
+  \begin{solution}
+    There are two implications since it is a double implication because it is an if and only if statement
+    \newline 1. if $\forall n \in \mathbb{Z}^{+}, R^{n} \subseteq R$, then $R$ is transitive
+    \newline 2. if $R$ is transitive, then $\forall n \in \mathbb{Z}^{+}, R^{n} \subseteq R $ 
+    \newline Proving statement 1 first, 
+    \newline Taking the contrapositive,
+    \newline if $R$ is not transitive, $\exists n$ such that $R*{n} \not \subseteq R$
+    \newline If $R$ is not transitive,
+    \newline $\exists a,b,c$ such that $(a,b) \land (b,c) \in R$, but $(a,c) \not \in R$
+    \newline 
+    \newline However, by definition, $(a,c) \in R^{2} \div R$
+    \newline Therefore, $R^{2} \not \subseteq R$
+    \newline As a result, this shows that if $R^{2} \not \subseteq R$, then $R$ is transitive
+    \newline
+    \newline Proving other side (2), here induction can be used
+    \newline Base Case: $n=1$
+    \newline When $n=1$, $R^{1} = R \subseteq R$, thus base case is true
+    \newline Induction Case:
+    \newline If $\exists n \in \mathbb{Z}^{+}, R^{n} \subseteq R$, then $R^{n+1} \subseteq R$
+    \newline Let $(x,y) \in R^{n+1}$
+    \newline By definition, $a \in A$ such that $(x,a) \in R^{n} \land (a, y) \in R$
+    \newline If $(a,b) \in R \land (b,c) \in R$ then $(a,c) \in R^{2} \subseteq R$
+    \newline Therefore $(a,c) \in R$, thus $R$ is transitive. 
 
+    \[\forall a,c\in A,\left(\exists b\in A\ni aRb\land bRc\implies aRc\right)\iff\forall n\in\mathbb{N}, R^n\subseteq R\]
+\end{solution}
+\end{parts}
 
 \question[5] Prove via induction that a complete graph with $n$ vertices contains $\dfrac{n(n-1)}{2}$ edges.
   \begin{solution}
