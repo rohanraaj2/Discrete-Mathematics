@@ -157,6 +157,23 @@
 
 \question[5] Show that in a simple graph with at least two vertices there must be two vertices that have the same degree.
   \begin{solution}
+    Let there be a simple graph, $G = (V, E)$
+    \newline It has $n$ vertices and $m$ edges
+    \newline Let us suppose that no two vertices of $G$ have same degree. (Proof by Contradiction)
+    \newline i.e. $\forall u, v \in V, deg(u) \not = deg(v)$
+    \newline Since $G$ is a simple graph, highest possible degree of a vertex is $n-1$
+    \newline Because any vertex can be connected to atmost every other vertex in $G$
+    \newline i.e. $v \in V,$ such that, $0 \leq deg(v) \leq n-1$
+    \newline Hence, $n$ possible degrees can be assigned to any $v \in V$, in the set, $D = \{ 0, 1, 2, ..., n-1 \}$
+    \newline
+    While there are $n$ vertices and $n$ possible degrees, 
+    \newline There should be a 1-on-1 correspondence between $V$ and $D$, since $G$ cannot contain two vertices of the same degree according to our supposition.
+    \newline On the contrary, that means that one vertex in graph $G$ has degree 0, and another vertex has degree $n-1$ that is impossible.
+    \newline 
+    \newline Since there are no vertices with degree $0$ or $n-1$, there are fewer elements in $D$ that can be assigned to those in $V$
+    \newline Therfore, atleast two elements in $V$ should map to the same element in $D$.
+    \newline Hence, there are two vertices with the same degree. 
+
   \end{solution}
   
 \question[5] The \textit{complementary graph} $\overline{G}$ of a simple graph $G$ has the same vertices as  $G$. Two vertices are adjacent in $\overline{G}$ if and only if they are not adjacent in $G$. Given $G$ with $v$ vertices and $e$ edges, how many edges are there in $\overline{G}$? Justify your answer.
