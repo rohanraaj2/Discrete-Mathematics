@@ -810,6 +810,7 @@ INPUT F:\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT F:\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT F:\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT F:\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
+INPUT C:\Users\hp\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT F:\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT F:\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT F:\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
@@ -818,7 +819,6 @@ INPUT F:\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam5.tfm
 INPUT F:\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT F:\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT F:\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
-INPUT C:\Users\hp\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT F:\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
 INPUT hw4.aux
 INPUT .\hw4.out
