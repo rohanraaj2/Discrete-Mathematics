@@ -78,6 +78,22 @@
 
 \question[5] If $f$ and $f \circ g$ are one-to-one, does it follow that $g$ is one-to-one? Justify your answer.
   \begin{solution}
+    We should note that $f$ is \textit{one-to-one} if and only if $\forall a, b \in x$ for $f(x)$, $f(a) = f(b) \implies a=b $ 
+    \newline The function is \textit{onto} if and only if $\forall b \in B, \exists a \in A$, such that $f(a)=b$
+    \newline Compositions of $f$ and $g$: $(f \circ g)(a) = f(g(a))$
+    \newline
+    \newline Given that $g: A \rightarrow B$ and,
+    \newline Given that $f: B \rightarrow C$ and,
+    \newline $f \circ g$ are one-to-one,
+    \newline 
+    \newline Lets assume $g(a) = g(b)$
+    \newline Taking the function $f$ on each side:
+    \newline $f(g(a)) = f(g(b))$
+    \newline Using the definition of composition, we get that,
+    \newline $(f \circ g)(a) = (f \circ g)(b)$
+    \newline Since $(f \circ g)$ is one-to-one, $a=b$
+    \newline 
+    \newline Hence, $g(a) = g(b) \implies a=b$. Therefore, by definition of one-to-one functions, $g$ is one-to-one function is proved!
   \end{solution}
 
 \question[5] Prove that a strictly decreasing function from $\mathbb{R}$ to itself is one-to-one. Give an example of a decreasing function from $\mathbb{R}$ to itself that is not one-to-one.
