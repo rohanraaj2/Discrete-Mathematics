@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1651204605 "f:/GitHub/hw4-hw4-isomorphic-predicate/hw4.tex" "hw4.pdf" "hw4" 1651204608
+["pdflatex"] 1651208913 "f:/GitHub/hw4-hw4-isomorphic-predicate/hw4.tex" "hw4.pdf" "hw4" 1651208918
   "C:/Users/hp/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1650792601 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/hp/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1649440866 10230536 46053274870689dfbe8e411cc7c05868 ""
   "F:/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -158,10 +158,10 @@
   "F:/MiKTeX/tex/latex/tools/multicol.sty" 1636710260 32262 2bb622a0aa56c4a7a5cbdfe9d122c15a ""
   "F:/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "F:/MiKTeX/tex/latex/xcolor/xcolor.sty" 1636284872 56029 3f7889dab51d620aa43177c391b7b190 ""
-  "f:/GitHub/hw4-hw4-isomorphic-predicate/hw4.tex" 1651204604 12547 40730181b091f5aa99dbe769bc1c7010 ""
-  "hw4.aux" 1651204607 3877 6c0c819593c4e6842c61dc3c5bb62341 "pdflatex"
+  "f:/GitHub/hw4-hw4-isomorphic-predicate/hw4.tex" 1651208905 13912 77840e303114af2358a941d351f1b21b ""
+  "hw4.aux" 1651208917 3875 72153df5a174eff1c1b0caedab06b613 "pdflatex"
   "hw4.out" 0 -1 0 "pdflatex"
-  "hw4.tex" 1651204604 12547 40730181b091f5aa99dbe769bc1c7010 ""
+  "hw4.tex" 1651208905 13912 77840e303114af2358a941d351f1b21b ""
   (generated)
   "hw4.aux"
   "hw4.log"
