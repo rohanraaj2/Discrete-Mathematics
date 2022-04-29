@@ -98,6 +98,35 @@
 
 \question[5] Prove that a strictly decreasing function from $\mathbb{R}$ to itself is one-to-one. Give an example of a decreasing function from $\mathbb{R}$ to itself that is not one-to-one.
   \begin{solution}
+    We should note that $f$ is \textit{one-to-one} if and only if $\forall a, b \in x$ for $f(x)$, $f(a) = f(b) \implies a=b $ 
+    \newline $f$ is \textit{strictly increasing} if $x < y$, then $f(x) < f(y)$
+    \newline $f$ is \textit{increasing} if $x < y$, then $f(x) \leq f(y)$
+    \newline We should also note that a \textit{ceiling function} is $\lceil x \rceil$: smallest integer that is greater than or equal to $x$.
+    \newline
+    \newline Given that $f: R \mapsto R$ is a strictly decreasing function,
+    \newline $f$ is a strictly decreasing function implies: if $x < y$, then $f(x) > f(y)$
+    \newline We assume that $f(a) = f(b)$ that leads us To
+    \newline if $a < b$ then it's an increasing function where $f(a) > f(b)$.
+    \newline Therefore, it is not possible that $a < b$ when $f(a) = f(b)$
+    \newline 
+    \newline If $a > b$, then it's a strictly decreasing function where $f(b) > f(a).$
+    \newline Here too, it is not possible that $b<a$ when $f(a) = f(b)$
+    \newline
+    \newline Because both conditions, $a>b$ and $a<b$ are not true, 
+    \newline $a$ and $b$ should be the same, i.e., $a=b$
+    \newline By definition of a one-to-one function, we needed to show that $a=b$ that we did,
+    \newline Therefore, $f$ is a one-to-one function.
+    \newline
+    \newline $f(x) = \lceil x \rceil$ is an increasing function.
+    \newline However, it is not a one-to-one function because it not possible for values to have the same image.
+    \newline e.g. $f(2) = \lceil 2 \rceil = 2$
+    \newline f(1.5) = $\lceil 1.5 \rceil = 2$
+    \newline 
+    \newline We take the function $g(x) = - \lceil x \rceil$, which is a decreasing function because of the negative sign.
+    \newline This function is not a one-to-one function as some values have the same image.
+    \newline e.g. $g(1) = - \lceil 1.5 \rceil = -2 $
+    \newline $g(2.5) = - \lceil 2.5 \rceil = -2$
+
   \end{solution}
   
   \section*{Graphs}
