@@ -249,6 +249,18 @@
 
 \question[5] Prove via induction that a complete graph with $n$ vertices contains $\dfrac{n(n-1)}{2}$ edges.
   \begin{solution}
+    Assuming a complete graph $K_{n}$
+    \newline Let $n=1$, where the single vertex is isolated, and a complete graph
+    \newline Thus, by the formula, $\frac{1(1-1)}{2} = \frac{1(0)}{2} = 0$
+    \newline Since it is an isolated vertex, it will have no edges, thus claim holds for base case.
+    \newline 
+    \newline Hypotheses: Suppose $K_(n)$ has $\frac{n(n-1)}{2}$ edges.
+    \newline To construct $K_{n+1}$, we add one new vertex
+    \newline Thus, $n$ new edges are created to connect it to $n$ vertices that are already present in the graph.
+    \newline Consequently,
+    \newline $\frac{n(n-1)}{2} + n = \frac{n(n+1)}{2}$
+    \newline Therefore, the edge count will be correct for $K_{n+1}$
+    \newline Thus proved.
   \end{solution}
   
 \end{questions}
