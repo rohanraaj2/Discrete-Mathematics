@@ -178,6 +178,12 @@
   
 \question[5] The \textit{complementary graph} $\overline{G}$ of a simple graph $G$ has the same vertices as  $G$. Two vertices are adjacent in $\overline{G}$ if and only if they are not adjacent in $G$. Given $G$ with $v$ vertices and $e$ edges, how many edges are there in $\overline{G}$? Justify your answer.
   \begin{solution}
+    Lets consider any two vertices $u, v \in G(V,E)$
+    \newline The edge, $\{u, v\} \in E$ and this edge appears in G
+    \newline The edge $\{ u, v \}$ can only appear in $G$ if and only if $\{ u, v \} \not \in G^{C}$
+    \newline Therefore, the sum of the number of edges of $G$ and $G^{C}$ is equal to the number of edges in $K_{v}$
+    \newline That is, $\frac{v(v-1)}{2}$ where $v$ is the number of vertices.
+    \newline Hence, the number of edges in $G^{C}$ will be $\frac{v(v-1)}{2} - e$ where $e$ is the number of edges in $G$ 
   \end{solution}
   
   \section*{Induction}
