@@ -137,65 +137,65 @@
 \question To lift the spirits of the students on their return, Habib University has decided to build 4 new courtyards--Nature, Ice, Light, and Darkness. Designs are invited and bids are received for the courtyards from 4 architect firms as follows. Parveen Prime can design Nature, Light, and Darkness; Queen Quratulain can design Ice and Light; Reena Rani can design Light and Darkness; and Super Sonam can design Nature and Ice.
   \begin{parts}
   \part[5] Use a bipartite graph to model the four architects and the courtyards that they can design.
-    % \begin{solution}
-    %   Let the letters in nodes represent the certain architects and the courtyards.
-    %   Where \textbf{N} is for \textit{Nature},
-    %   \newline \textbf{I} is for \textit{Ice},
-    %   \newline \textbf{L} if for \textit{Light},
-    %   \newline and \textbf{D} is for Darkness courtyards respectively.
-    %   \newline
-    %   \newline Where \textbf{P} is for \textit{Parveen Prime},
-    %   \newline \textbf{Q} is for \textit{Queen Quratulain},
-    %   \newline \textbf{R} is for \textit{Reena Rani},
-    %   \newline and \textbf{S} is for \textit{Super Sonam} firm respectively. 
-    %   \newline
-    % %   \begin{tikzpicture}[main/.style = {draw, circle}] 
-    %   \node[main] (2) [below of =1] {$Q$};
-    %   \node[main] (4) [below of =3] {$S$};
-    %   \node[main] (3) [below of =2] {$R$}; 
-    %   \node[main] (1) {$P$}; 
-    %     \node[main] (5) [above right of=1] {$D$}; 
-    %     \node[main] (6) [below right of=5] {$I$};
-    %     \node[main] (7) [below of=6] {$L$};
-    %     \node[main] (8) [below of=7] {$N$};
-
-    %     \draw (1) -- (5)
-    %     \draw {1} -- (7)
-    %     \draw (1) -- (8)
-    %     \draw (2) -- (6)
-    %     \draw (2) -- (7)
-    %     \draw (3) -- (7)
-    %     \draw (4) -- (6)
-    %     \draw (4) -- (8)
-    %     \draw (3) -- (5)
-
-    %   \end{tikzpicture} 
-    % \end{solution}
     \begin{solution}
+      Let the letters in nodes represent the certain architects and the courtyards.
+      Where \textbf{N} is for \textit{Nature},
+      \newline \textbf{I} is for \textit{Ice},
+      \newline \textbf{L} if for \textit{Light},
+      \newline and \textbf{D} is for Darkness courtyards respectively.
+      \newline
+      \newline Where \textbf{P} is for \textit{Parveen Prime},
+      \newline \textbf{Q} is for \textit{Queen Quratulain},
+      \newline \textbf{R} is for \textit{Reena Rani},
+      \newline and \textbf{S} is for \textit{Super Sonam} firm respectively. 
+      \newline
+      \begin{tikzpicture}[main/.style = {draw, circle}] 
+        \node[main] (2) [below of =1] {$Q$};
+        \node[main] (4) [below of =3] {$S$};
+        \node[main] (3) [below of =2] {$R$}; 
+        \node[main] (1) {$P$}; 
+        \node[main] (5) [above right of=1] {$D$}; 
+        \node[main] (6) [below right of=5] {$I$};
+        \node[main] (7) [below of=6] {$L$};
+        \node[main] (8) [below of=7] {$N$};
 
-      \begin{tikzpicture}
-        \tikzstyle{node} = [draw,circle,fill=black,inner sep=3pt]
-        \foreach \l/\x/\y in {a/0/0/, b/0/-1/, c/0/-2/, d/0/-3,
-          e/2/0.5, f/2/-0.5, g/2/-1.5, h/2/-2.5 } {
-          \node[node] (\l) at (\x,\y) {};
-        }
-  
-        \foreach \a/\b in {a/e, a/g, a/h, b/f, b/g, c/g,c/h, d/e, d/f} {
-          \draw (\a) -- (\b);
-        }
-        \foreach \a/\b in {a/Parveen Prime, b/Queen Quratulain, c/Reena Rani, d/Super Sonam} {
-          \node[left of = \a]{\small\color{blue}\b};
-        }
-        \foreach \a/\b in {e/Nature, f/Ice, g/Light, h/Darkness} {
-          \node[right of = \a]{\small\color{blue}\b};
-        }
-  
-      %  \draw[purple,thick] (a) -- (e);
-      %  \draw[purple,thick] (b) -- (f);
-      %  \draw[purple,thick] (c) -- (h);
-      %  \draw[purple,thick] (d) -- (g);
-      \end{tikzpicture}
+        \draw (1) -- (5)
+        \draw {1} -- (7)
+        \draw (1) -- (8)
+        \draw (2) -- (6)
+        \draw (2) -- (7)
+        \draw (3) -- (7)
+        \draw (4) -- (6)
+        \draw (4) -- (8)
+        \draw (3) -- (5)
+
+      \end{tikzpicture} 
     \end{solution}
+    % \begin{solution}
+
+    %   \begin{tikzpicture}
+    %     \tikzstyle{node} = [draw,circle,fill=black,inner sep=3pt]
+    %     \foreach \l/\x/\y in {a/0/0/, b/0/-1/, c/0/-2/, d/0/-3,
+    %       e/2/0.5, f/2/-0.5, g/2/-1.5, h/2/-2.5 } {
+    %       \node[node] (\l) at (\x,\y) {};
+    %     }
+  
+    %     \foreach \a/\b in {a/e, a/g, a/h, b/f, b/g, c/g,c/h, d/e, d/f} {
+    %       \draw (\a) -- (\b);
+    %     }
+    %     \foreach \a/\b in {a/Parveen Prime, b/Queen Quratulain, c/Reena Rani, d/Super Sonam} {
+    %       \node[left of = \a]{\small\color{blue}\b};
+    %     }
+    %     \foreach \a/\b in {e/Nature, f/Ice, g/Light, h/Darkness} {
+    %       \node[right of = \a]{\small\color{blue}\b};
+    %     }
+  
+    %    \draw[purple,thick] (a) -- (e);
+    %    \draw[purple,thick] (b) -- (f);
+    %    \draw[purple,thick] (c) -- (h);
+    %    \draw[purple,thick] (d) -- (g);
+    %   \end{tikzpicture}
+    % \end{solution}
     
   \part[5] Use Hall’s theorem to determine whether there is an assignment of architects to courtyards so that each architect is assigned one courtyard to design.
     \begin{solution}
