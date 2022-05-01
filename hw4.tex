@@ -8,6 +8,7 @@
 \usepackage{multicol}
 \usepackage{tikz}
 \usepackage{titling}
+\usepackage{tabularx}
 
 
 % Header and footer.
@@ -211,10 +212,55 @@
     
   \part[5] Use Hall’s theorem to determine whether there is an assignment of architects to courtyards so that each architect is assigned one courtyard to design.
     \begin{solution}
+      \begin{tabularx}{\textwidth}{X|X|X|X}
+        $A$ & $N(A)$ & $|A|$ & $|N(A)|$ \\\hline\hline
+        $\{\}$ & $\{\}$ & $0$ & $0$ \\
+        $\{ P\}$  & $\{ D, L, N\}$ & $1$ & $3$ \\
+        $\{ Q\}$ & $\{ I, L\}$ & $1$ & $2$ \\
+        $\{ R\}$ & $\{ D, L\}$ & $1$ & $2$ \\
+        $\{ S\}$ & $\{ I, N\}$ & $1$ & $2$ \\
+        $\{ P,Q\}$ & $\{ D, I, L, N\}$ & $2$ & $4$ \\
+        $\{ P, S\}$ & $\{ D, I, L, N\}$ & $2$ & $4$ \\
+        $\{ R, S\}$ & $\{ D, I, L, N\}$ & $2$ & $4$ \\
+        $\{ P, R\}$ & $\{ D, L, N\}$ & $2$ & $3$ \\
+        $\{ Q, R\}$ & $\{ D, I, L\}$ & $2$ & $3$ \\
+        $\{ Q, S\}$ & $\{ I, L, N\}$ & $2$ & $3$ \\
+        $\{ P, Q, R\}$ & $\{ D, I, L, N\}$ & $3$ & $4$ \\
+        $\{ P, Q, S\}$ & $\{ D, I, L, N\}$ & $3$ & $4$ \\
+        $\{ P, R, S\}$ & $\{ D, I, L, N\}$ & $3$ & $4$ \\
+        $\{ Q, R, S\}$ & $\{D, I, L, N\}$ & $3$ & $4$ \\
+        $\{ P, Q, R, S\}$ & $\{ D, I, L, N\}$ & $4$ & $4$ \\
+      \end{tabularx}
+      Therefore, for all subsets of $A$ of $V_{1}$, $|A(N)| \geq |A|$, where $V_{1}$ are the vertices of architects
+      \newline As a result, according to Hall's Theorem, from $V_{1}$ to $V_{2}$, there exists a complete matching, where $V_{2}$ are the vertices of names of courtyards.
     \end{solution}
 
   \part[5] Provide the assignment, if it exists, of architects to courtyards such that each architect is assigned to a courtyard that she can design.
     \begin{solution}
+      Please note that the meaning of the alphabets is the same as that before in part (a)
+      \begin{tikzpicture}
+        \tikzstyle{node} = [draw,circle,fill=black,inner sep=3pt]
+        \foreach \l/\x/\y in {a/0/0/, b/0/-1/, c/0/-2/, d/0/-3,
+          e/2/0.5, f/2/-0.5, g/2/-1.5, h/2/-2.5 } {
+          \node[node] (\l) at (\x,\y) {};
+        }
+  
+        % \foreach \a/\b in {a/e, a/g, a/h, b/f, b/g, c/g,c/h, d/e, d/f} {
+        %   \draw (\a) -- (\b);
+        % }
+        \foreach \a/\b in {a/P, b/Q, c/R, d/S} {
+          \node[left of = \a]{\small\color{blue}\b};
+        }
+        \foreach \a/\b in {e/D, f/I, g/L, h/N} {
+          \node[right of = \a]{\small\color{blue}\b};
+        }
+  
+       \draw[purple,thick] (a) -- (e);
+       \draw[purple,thick] (b) -- (f);
+       \draw[purple,thick] (c) -- (g);
+       \draw[purple,thick] (d) -- (h);
+       %Credits to Ahad Ali for helping me out in making the graph on LaTeX
+      \end{tikzpicture}
     \end{solution}
   \end{parts}
   
