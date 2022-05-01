@@ -776,10 +776,10 @@ INPUT .\hw4.out
 INPUT hw4.out
 INPUT .\hw4.out
 INPUT hw4.out
-OUTPUT hw4.pdf
 INPUT .\hw4.out
 INPUT .\hw4.out
 OUTPUT hw4.out
+OUTPUT hw4.pdf
 INPUT F:\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
 INPUT F:\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT F:\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
@@ -848,7 +848,7 @@ INPUT F:\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.m
 INPUT F:\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.multipart.code.tex
 INPUT F:\MiKTeX\tex\generic\pgf\libraries\shapes\pgflibraryshapes.multipart.code.tex
 INPUT F:\MiKTeX\tex\generic\pgf\libraries\shapes\pgflibraryshapes.multipart.code.tex
-INPUT F:\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT F:\MiKTeX\fonts\tfm\public\cm\cmr9.tfm
 INPUT hw4.aux
 INPUT .\hw4.out
 INPUT .\hw4.out
@@ -872,6 +872,8 @@ INPUT F:\MiKTeX\fonts\type1\public\amsfonts\cm\cmr6.pfb
 INPUT F:\MiKTeX\fonts\type1\public\amsfonts\cm\cmr6.pfb
 INPUT F:\MiKTeX\fonts\type1\public\amsfonts\cm\cmr7.pfb
 INPUT F:\MiKTeX\fonts\type1\public\amsfonts\cm\cmr7.pfb
+INPUT F:\MiKTeX\fonts\type1\public\amsfonts\cm\cmr9.pfb
+INPUT F:\MiKTeX\fonts\type1\public\amsfonts\cm\cmr9.pfb
 INPUT F:\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT F:\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT F:\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy7.pfb
