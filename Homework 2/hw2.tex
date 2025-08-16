@@ -1,0 +1,532 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{tabularx}
+\usepackage{titling}
+
+% Header and footer.
+\pagestyle{headandfoot}
+\runningheadrule
+\runningfootrule
+\runningheader{CS/MATH 113}{HW 2: Logic}{Solved by \theauthor isomorphic-predicate}
+\runningfooter{}{Page \thepage\ of \numpages}{}
+\firstpageheader{}{}{}
+
+\boxedpoints
+\printanswers
+
+\newcommand\ol\overline
+
+
+\title{Homework 2: Logic}
+\author{upper-bound}  % replace with your team name
+\date{CS/MATH 113 Discrete Mathematics\\Habib University, Spring 2022}
+
+\begin{document}
+\maketitle
+
+\begin{questions}
+
+\section*{Propositional Logic}
+  
+\question Prove or disprove the following claims using truth tables. In each case, explicitly state your conclusion and how it is supported by the truth table.
+  \begin{parts}
+  \part[5] $\neg(p \lor q) \equiv \neg p \land \neg q $.
+    \begin{solution}
+      % Part of the table is given here for your convenience.
+      \[
+        \begin{array}{c|c|*{6}{|c}}
+          p & q & p \lor q & \neg(p \lor q) & \neg p & \neg q & \neg p \land \neg q & (\neg(p \lor q)) \iff (\neg p \land \neg q)\\
+          \hline
+          F & F & F & T & T & T & T & T \\
+          F & T & T & F & T & F & F & T \\
+          T & F & T & F & F & T & F & T \\
+          T & T & T & F & F & F & F & T 
+        \end{array}
+      \]
+      They are logically equivalent since $\neg(p \lor q)$ and $ \neg(p) \land \neg(q)$ have the same truth values and there is a tautology.
+      \newline $ \implies (\neg(p \lor q) \equiv (\neg q \land \neg p))$.
+    \end{solution}
+
+  \part[5] $ (p \lor q) \implies \neg r \equiv (\neg p \land \neg q) \land \neg r$.
+    \begin{solution}
+      % Part of the table is given here for your convenience.
+      For ease of notation, let
+      \[
+        \begin{array}{l@{\text{ : }} l}
+          A & (p\lor q)\implies \lnot r \\
+          B & (\lnot p \land \lnot q) \land \lnot r
+        \end{array}
+      \]
+      So we have to prove that $A \equiv B$.
+      \[
+        \begin{array}{*{3}{c|}*{8}{|c}}
+          p & q & r & \lnot p & \lnot q & \lnot r & p \lor q & \lnot p \land \lnot q & A & B & A \iff B\\
+          \hline
+          F & F & F & T & T & T & F & T & T & T & T \\
+          F & F & T & T & T & F & F & T & T & F & F \\
+          F & T & F & T & F & T & T & F & T & F & F \\
+          F & T & T & T & F & F & T & F & F & F & T \\
+          T & F & F & F & T & T & T & F & T & F & F \\
+          T & F & T & F & T & F & T & F & F & F & T \\
+          T & T & F & F & F & T & T & F & T & F & F \\
+          T & T & T & F & F & F & T & F & F & F & T 
+        \end{array}
+      \]
+      \newline $A \iff B$ is not a tautology as A and B do not have the same truth values in the truth table.
+      \newline $\implies A \not \equiv B$ 
+    \end{solution}
+    
+  \end{parts}
+
+\question We want to write the statement, ``A person is popular only if they are cool or funny'', in propositional logic.
+  \begin{parts}
+  \part[5] Identify three simple propositions, $p, q, \text{ and } r$, needed for the representation and write out the corresponding expression that uses them to represent the given sentence.
+    \begin{solution}
+      % Enter your solution here.
+      p : A person is popular
+      \newline q : A person is cool
+      \newline r : A person is funny
+      \newline $p \implies (q \lor r)$
+    \end{solution}
+  \part[5] For your expression identified above, write the converse, contrapositive, and inverse in propositional logic as well as complete English sentences.
+    \begin{solution}
+      
+      % Part of the table is given here for your convenience.
+      \begin{tabularx}{\textwidth}{l|l|X}
+        & Logical Notation & English sentence \\\hline\hline
+        Converse & $(q \lor r) \implies p$  & A person is cool or funny only if they are popular. \\\hline
+        Contrapositive & $(\neg q \land \neg r) \implies \neg(p)$ & A person is not funny and not cool only if they are not popular \\\hline
+        Inverse & $\neg(p) \implies (\neg q \lor \neg r)$ & A person is not popular only if they are neither cool nor funny    
+      \end{tabularx}
+
+    \end{solution}
+  \end{parts}
+
+\question[5] A small company makes widgets in a variety of constituent materials (aluminum, copper, iron), colors (red, green, blue, grey), and finishes (matte, textured, coated). Although there are many combinations of widget features, the company markets only a subset of the possible combinations. The following sentences are constraints that characterize the possibilities. 
+  \begin{enumerate}
+  \item aluminum $\lor$ copper $\lor$ iron
+  \item aluminum $\implies$ grey
+  \item copper $\land$ $\neg$ coated $\implies$ red
+  \item coated $\land$ $\neg$ copper $\implies$ green
+  \item green $\lor$ blue $\iff \neg$ textured $\land$ $\neg$ iron
+  \end{enumerate}
+  Suppose that a customer places an order for a copper widget that is both green and blue with a matte finish.
+  \begin{parts}
+  \part[5] Using the propositions above, express the order as a compound proposition in logical notation.
+    \begin{solution}
+      % Enter your solution here.
+      $copper \land (green \land blue) \land matte$ 
+    \end{solution}
+  \part[5] Determine which constraints are satisfied and which are violated for the order, and provide an explanation.
+  \begin{solution}
+
+    % Part of the table is given here for your convenience.
+    \begin{tabularx}{\textwidth}{l|l|X}
+      Constraint & Satisfied & Explanation \\\hline\hline
+      aluminum $\lor$ copper $\lor$ iron & Satisfied & Since the metal is copper is True, it satisfies the truth value\\
+      aluminum $\implies$ grey & Satisfied & Since the metal is copper, the order does not contradict with it. The implication is satisfied as both aluminium and grey are False \\\hline
+      copper $\land$ $\neg$ coated $\implies$ red & Not Satisfied & The implication is not satisfied as the antecedent is True, but the consequent is False \\\hline
+      coated $\land$ $\neg$ copper $\implies$ green & Satisfied & Since the metal is copper, and not coated, the order does not contradict as color is green is True, while the antecedentsa are False \\\hline
+      green $\lor$ blue $\iff \neg$ textured $\land$ $\neg$ iron & Satisfied & Since the order's colors are both green and blue so the biconditional is satisfied as both sides have True values, they are not textured and has no iron as well, so order doesn't contradict with constraints. 
+    \end{tabularx}
+  \end{solution}
+
+\end{parts}
+
+
+\question[5] You are given four cards each of which has a number on one side and a letter on another. You place them on a table in front of you and the four cards read: $A\ 5\ 2\ J$. Which cards would you turn over in order to test the following rule? 
+  \begin{center}
+    Cards with $5$ on one side have $J$ on the other side.
+  \end{center}
+  Explain your choice.
+  \begin{solution}
+    The rule can be written as: $5 \implies J$, where 5 means the sign on one side of the cards
+    and J means the other side. 
+    Below, Yes means that the card needs to be turned, while No means otherwise
+      % Part of the table is given here for your convenience.
+    \begin{tabularx}{\textwidth}{c|c|X}
+      Card & Turned & Explanation \\\hline\hline
+      $A$ & Yes & The consequent of the implication is False. \newline Whenever this is the case, the implication's truth \newline value depends on the antecedent. If there is 5 on the \newline other side, and A on the other, the implication will \newline be False. Therefore this card needs to be turned to \newline verify the rule\\\hline
+      $5$ & Yes & Has 5, so J needs to be there, so checked to verify the \newline rule. Since the 5 is there, the antecedent is True, and \newline if the J is there on the consequent will be True, \newline so the rule will be verfied so it needs to be turned.\\\hline
+      $2$ & No & Has not 5 on the side. Therefore, the antecedent is False. \newline Therefore, the implication is False already regardless \newline of J coming there or not. Because it can neither \newline prove or disprove the rule.\\\hline
+      $J$ & No & Has J, although the consequent is verified, it is not \newline necessary according to the rule that if J is there, so \newline always there should be a 5. So the number on the \newline other side will make no effect on the validity of the \newline rule.
+    \end{tabularx}
+    
+  \end{solution}
+  
+\question An argument is said to be \textit{valid} if its \textit{conclusion} can be inferred from its \textit{premises}. An argument that is not valid is called an \textit{invalid} argument, or a \textit{fallacy}. For each of the arguments below, identify the simple propositions involved, write the premises and conclusion(s) in logical notation using the identified simple propositions, and decide whether it is valid. Justify your decision.
+
+  \begin{parts}
+  \part[5] If I am wealthy, then I am happy. I am happy, therefore, I am wealthy.
+    \begin{solution}
+      % Part of the structure is given here for your convenience.
+      The simple propositions are as follows.\\
+      \begin{tabularx}{\textwidth}{l@{ : }X}
+        $p$ & I am wealthy\\ % state the atomic proposition
+        $q$ & I am happy% state the atomic proposition  
+      \end{tabularx}
+      
+      The argument is
+      \[
+        \begin{array}{l}
+          p \implies q\\
+          q\\\hline
+          p\\
+        \end{array}
+      \]
+
+      The conlusion p cannot be inferred from its premise and it can be confirmed by making the truth tables to proof it is not a tautology. Therefore, the argument is invalid since there is no evidence in the table of rules of inference.
+      \newline This form of fallacy can be called, 'affirming the consequent.'
+      \newline There is no information about any inference from q and conclusion, p, cannot be inferred from the premises.
+    \end{solution}
+  \part[5]
+    If Ahmed drives his car, he is at least 18 years old. Ahmed does not drive a car. Therefore, Ahmed is not yet 18 years old. 
+    \begin{solution}
+      % Enter your solution here.
+      p : Ahmed drives his car
+      q : He is atleast 18 years old
+
+      The argument is
+      \[
+        \begin{array}{l}
+          p \implies q\\
+          \neg p\\\hline
+          \neg q\\
+        \end{array}
+      \]
+      The conclusion $\neg q$ cannot be inferred from its premise. The statement is logically incorrect and invalid as 
+      \newline There is no information about any inference from $\neg p$ and the conclusion, $\neg q$ cannot be inferred from the premises.
+      \newline The argument is invalid and this form of fallacy is called 'denying the antecedent.'
+      
+    \end{solution}
+  \part[5] If I study, then I will not fail CS 113. If I do not play cards too often, then I will study. I failed CS 113. Therefore, I played cards too often.
+    \begin{solution}
+      % Enter your solution here.
+      p : I study      
+      q : I will fail CS 113
+      r : I play cards too often
+
+      The argument is
+      \[
+        \begin{array}{l}
+          p \implies \neg q     (1)\\
+          \neg r \implies p     (2)\\
+          \neg q      (3)\\ \hline     
+          r\\
+
+          Inferrence : \neg p \\
+          Premises: (1)\land(3) $            (4)$
+          \\
+          \\Inference: r
+          \\Premise: (2)\land(4)   
+        \end{array}
+      \]
+      The statement is logically correct 
+    \end{solution}
+  \end{parts}
+
+\question[5] One of your TA's has hidden a manual titled, ``Sacred Secrets: How to Earn an A+ and Keep your Mind'', somewhere on campus. As they could themselves not benefit from this manual, the directions they have left for you to find the manual are as follows.
+  \begin{enumerate}
+  \item There is a hint at Learn Courtyard or at the Gym.
+  \item If your TA is sitting in Ehsas or they are absent, then there is a hint at Learn Courtyard.
+  \item If your TA is not sitting in Ehsaas, then there is a hint at the Gym.
+  \item If there are people in Learn Courtyard, then there is no hint at Learn Courtyard.
+  \item If there is a hint at Learn Courtyard, then the manual is at Zen Garden.
+  \item If there is hint at the Gym, then the manual is at Earth Courtyard.
+  \item If your TA is absent, then the manual is at Fire Courtyard.
+  \end{enumerate}
+  You notice that there are people in Learn Courtyard. Where is the manual?
+
+  Identify the relevant simple propositions to model the above in propositional logic. Represent the above situation using propositional logic and describe the steps needed to infer the location of the manual.
+  \begin{solution}
+    % Enter your solution here.
+    The propositions are assigned as:
+    \newline$a$ : There is a hint at Learn Courtyard
+    \newline$b$ : There is a hint at the Gym
+    \newline$c$ : the TA is sitting at Ehsas center
+    \newline$d$ : the TA is absent
+    \newline$e$ : There are people in the Learn Courtyard
+    \newline$f$ : The manual is at the Zen Garden
+    \newline$g$ : The manual is at Earth Courtyard
+    \newline$h$ : The manual is at Fire Courtyard
+
+    The given information is provided as:
+    \newline $a \lor b$
+    \newline $(c \lor d) \implies a$
+    \newline $\neg c \implies b$
+    \newline $e \implies \neg a$
+    \newline $a \implies f$
+    \newline $b \implies g$
+    \newline $d \implies h$
+
+    We will then analyze the information provided, i.e., we see people sitting in the courtyard.
+    Therefore, we can infer that there is no hint at the Learn Courtyard. Since we know that the hint 
+    is either at the Gym or the Learn Courtyard, we get to know that the hint is at the Gym since it is Not
+    at the Learn Courtyard. Further, we get to know that since the hint is at the Gym, the manual is at the Earth Courtyard.
+
+    The manual is at the Earth Courtyard.
+  \end{solution}
+
+\question[5] A TV channel is reporting a terrorist attack on a shopping mega-mall. The mega-mall website claims that the mall closes only in case of an attack. It is known that a sale is on whenever the mega-mall is open, and that many people come when there is a sale. A crime expert explained that in case of an attack, neighbors end up hearing firing sounds and calls are made to the local police. Phone logs indicate no recent calls to the police.
+  \begin{parts}
+    \part[5] We are not sure about the TV report, but we trust all the other sources. Is the mega-mall open?
+  \begin{solution}
+    The propositions are assigned as:
+    \newline$a$ : A TV channel is reports a terrorist attack on a shopping mega-mall
+    \newline$b$ : The mall is closed
+    \newline$c$ : A sale is on
+    \newline$d$ : Many people came
+    \newline$e$ : Neighbors hearing firing sounds
+    \newline$f$ : Calls made to the local police
+
+    The given information is provided as:
+    \newline $b \implies a$
+    \newline $\neg b \implies c$
+    \newline $c \implies d$
+    \newline $a \implies (e \land f)$
+
+    We will then analyze the information provided, i.e., Phone logs indicate no recent calls to the police. Therefore, we can infer that there is no terrorist attack on a shopping mega-mall. Since we we trust all the sources other than the TV channel's report, which includes the mega-mall website that claims that the mall closes only in case of an attack, we can say that the mall is open.
+
+
+  \end{solution}
+    \part[5] Is the TV report true?
+  \begin{solution}
+    The propositions are assigned as:
+    \newline$a$ : A TV channel is reports a terrorist attack on a shopping mega-mall
+    \newline$b$ : The mall is closed
+    \newline$c$ : A sale is on
+    \newline$d$ : Many people came
+    \newline$e$ : Neighbors hearing firing sounds
+    \newline$f$ : Calls made to the local police
+
+    The given information is provided as:
+    \newline $b \implies a$
+    \newline $\neg b \implies c$
+    \newline $c \implies d$
+    \newline $a \implies (e \land f)$
+
+    We will then analyze the information provided, i.e., Phone logs indicate no recent calls to the police. Therefore, we can infer that there is no terrorist attack on a shopping mega-mall. Hence, the TV report is False.
+  \end{solution}
+  \end{parts}
+  
+\section*{Predicate Logic}
+  
+\question
+  \begin{parts}
+  \part[5] There is a third quantifier often used in predicate logic called the \textit{Uniqueness Quantifier}, $\exists!x\; P(x)$ which is read as, ``$P(x)$ is true for one and only one $x$ in the domain'', or ``there is a \textit{unique} $x$ such that $P(x)$''. Give an example of a propositional function $P(x)$ and a corresponding domain, such that $\exists!x\; P(x)$ is a true proposition.
+    \begin{solution}
+      % Enter your solution here.
+      Condider domain $\mathbb{Z}$ of integers and the predicate $P(x) : x-1 = 0$.
+      Then the following is true:
+      $\exists !x \in \mathbb{Z} (x-1 = 0)$
+    \end{solution}
+    
+  \part[5] The uniqueness quantifier can be expressed using the other two quantifiers but is still used on its own as it shortens the logical terms. In particular,
+    \begin{align}
+      \exists!x\;  P(x) \equiv \exists x\; (P(x) \land \forall y\; (P(y) \rightarrow y = x)) \label{eq:uniq}
+    \end{align}
+    Express the proposition on the right above in English and explain why it is equivalent to the left hand side, i.e. to the uniquely quantified propositional function. You may explain in words; a formal proof is not yet required.
+    \begin{solution}
+      % Enter your solution here.
+      The proposition on the right claims that there is an x in the domain for
+      \newline which P(x) is True. And if P(x) is True for any other value y from the domain, y
+      \newline must be the same as x. This is the same as saying that x is the only value in the
+      \newline domain for which P(x) is True. In other words, there is only one x or a unique x in
+      \newline the domain which makes P(x) True.
+    \end{solution}
+    
+  \part[5] Express $\neg \exists!xP\; (x)$ in a similar way as (\ref{eq:uniq}). Provide an expression in formal notation as well as in English. Also, give an example of a true proposition $\neg\exists!x\; P(x)$ by slightly changing the one you gave in part (a).
+    \begin{solution}
+      % Enter your solution here.
+      $\forall      x\; (\neg P(x) \lor \exists y\; (P(y) \land y \neq x))$
+      \newline there is a unique $x$ such that $P(x)$” means two things; uniqueness and existence!
+      \newline The negation violates both statements, which means either none exists at all, or more than one exists.
+      \newline Example can be written as $"x-5\neq7"$ having a domain such that $x \in     \mathbb{R}              $ 
+      \newline There can be many posssible values of x that exist, except the unique value satisfying the previous given example $"x-5=7"$ i.e. '12'!
+    \end{solution}
+  \end{parts}
+
+  
+\question
+  For each of the statements given below, perform the following.
+  \begin{enumerate}
+  \item Express the statement in formal notation using quantifiers.
+  \item Express the negation of the statement in formal notation such that no negation is left to the quantifier.
+  \item Express the negated statement above as a statement in English.
+  \end{enumerate}
+
+  \begin{parts}
+  \part[5] No one can have Pakistani and Indian citizenship.
+    \begin{solution}
+      \newline Let M(x) denote ``x can have Pakistani citizenship''
+      \newline Let I(x) denote ``x can have Indian citizenship''
+      \newline Formal Notation:
+      \newline $\neg \exists x (M(x) \land I(x))$
+
+      Negation of the statement in formal notation:
+      \newline $\exists x (M(x) \land I(x))$
+
+      Negated Statement as a statement in English:
+      \newline There is someone who can have Pakistani and Indian citizenship
+    \end{solution}
+
+  \part[5] If everyone does their homework and goes to the recitations, no one will be badly prepared for the exams.
+    \begin{solution}
+      Let H(x) denote ``x does his/her homework''
+      \newline Let R(x) denote ``x goes to the recitations''
+      \newline Let B(x) denote ``x is badly prepared for the exams''
+      \newline Formal Notation:
+      \newline $(\forall x (H(x) \land R(x))) \implies \neg \exists B(x)$
+
+      Negation of the statement in formal notation:
+      \newline $\exists x (H(x) \land R(x))) \implies \exists \neg B(x)$
+
+      Negated Statement as a statement in English:
+      \newline If someone does his/her homework and goes to the recitations, he/she will not be badly prepared for the exams
+
+    \end{solution}
+
+
+  \part[5] No student has solved at least one exercise in every section of the book.
+    \begin{solution}
+      \newline Let S(x) denote ``x has solved''
+      \newline Let N(x) denote ``x is number of exercises''
+      \newline Let B(x) denote ``x is the number of sections of the book''
+      \newline Formal Notation:
+      \newline $\neg \exists x (S(x) \land \exists(N(x)) \land \forall(B(X)))$
+
+      Negation of the statement in formal notation:
+      \newline $\exists x (S(x) \land \exists(N(x)) \land \forall(B(X)))$
+
+      Negated Statement as a statement in English:
+      \newline There is a student who has solved at least one exercise in every section of the book.
+    \end{solution}
+
+    
+  \part[5] No one has climbed every mountain in Pakistan.
+    \begin{solution}
+      \newline Let C(x) denote ``x has climbed''
+      \newline Let N(x) denote ``x is number of mountains in Pakistan''
+      \newline Formal Notation:
+      \newline $\neg \exists x (C(x) \land \forall (N(x)))$
+
+      Negation of the statement in formal notation:
+      \newline $\exists x (C(x) \land \forall (N(x)))$
+
+      Negated Statement as a statement in English:
+      \newline There is someone who has climbed every mountain in Pakistan.
+
+    \end{solution}
+  \end{parts}
+
+\question
+  Translate the specifications below into English using the given propositional functions.\\
+  \begin{tabular}{l@{ : }l}
+    $F(p)$ & The printer $p$ is out of service\\
+    $B(p)$ & Printer $p$ is busy\\
+    $L(j)$ & Print job $j$ is lost\\
+    $Q(j)$ & Print job $j$ is queued
+  \end{tabular}
+  \begin{parts}
+  \part[5] $\exists p\; (F(p) \land B(p)) \rightarrow \exists j\; L(j)$
+    \begin{solution}
+      If a printer is out of service and busy, print job is lost.
+
+    \end{solution}
+    
+  \part[5] $(\forall p\; B(p) \land \forall j\; Q(j)) \rightarrow \exists j\; L(j)$
+    \begin{solution}
+      If all printers are busy and all print jobs are queued, print job is lost.
+    \end{solution}
+  \end{parts}
+
+\question Express each of the system specifications below using suitable predicates, quantifiers, and logical connectives.
+  \begin{parts}
+  \part[5] At least one mail message can be saved if there is a disk with more than 10KB of free space.
+    \begin{solution}
+      \newline Let M(x) denote ``x is the number of mail messages that can be saved''
+      \newline Let S(x) denote ``x is a disk with more than 10KB of free space''
+      \newline $\exists x (S(x) \rightarrow M(x))$
+    \end{solution}
+
+  \part[5] The system mailbox can be accessed by everyone in the group if the file system is locked.
+    \begin{solution}
+      \newline Let M(x) denote ``x is the number of people in the group that can access system mailbox''
+      \newline Let L(x) denote ``x is the locked file system''
+      \newline $\exists x (L(x) \rightarrow \forall x (M(x)))$
+    \end{solution}
+  \end{parts}
+
+\question
+  Consider the propositions below for which the domain of all variables is $\mathbb{Z}$. For each proposition,
+  \begin{enumerate}
+  \item Express the proposition in English,
+  \item State its truth value and provide an explanation if it is true or a counterexample if it is false, and
+  \item Specify a domain for which the proposition has the other truth value.
+  \end{enumerate}
+
+  \begin{parts}
+  \part[5] $\forall x \forall y\; (x^2= y^2 \rightarrow x=y)$
+    \begin{solution}
+      % Enter your solution here.
+      1) If the squares of two integers are equal, then the integers must have already been
+      equal
+      2) This proposition is False. A counterexample is $(x, y) : (1, -1)$. (One counterexample is sufficient to disprove universality.)
+      3. One domain for which the proposition is true is Z
+      +.
+    \end{solution}
+
+  \part[5] $\forall x \exists y\; (y^2=x)$
+    \begin{solution}
+      % Enter your solution here.
+      1. Every integer is the square of some integer.
+      2. This proposition is False. A counterexample is $x = 2$ for which no $y \in Z$ can
+      be found to satisfy the statement. (One counterexample is sufficient to disprove
+      universality.)
+      3. One domain for which the proposition is true is R
+      +
+
+    \end{solution}
+
+  \part[5] $\exists x \forall y\; (x \leq y^2)$
+    \begin{solution}
+      % Enter your solution here.
+      1. There exists an integer which is less than or equal to the square of any other
+      integer.
+      2. This proposition is True. It is possible to find a value, e.g. x = 0, that makes
+      \newline the proposition True, as 0 less than equal to y
+      2
+      for all y $\in$Z. (One example is sufficient to prove
+      existence.)
+      3. ne other domain for which the proposition is true is R. But if we take R  
+      + ,
+      then such a number does not exist. In particular for every real number x, you
+      can then find a number y, such that y
+      2 < x.
+    \end{solution}
+
+  \part[5] $\forall x \forall y\ \exists z\; (x-z=y)$
+    \begin{solution}
+      % Enter your solution here.
+
+      1. The difference of any 2 integers is an integer.
+      2. This proposition is True. The difference of 2 integers is again an integer.
+      3. O  ne domain for which the proposition is False is Z
+      +. A counterexample for that
+      domain is (x, y) : (5, 7). z would have to be -2 which is not in the domain.
+
+    \end{solution}
+  \end{parts}
+  
+\end{questions}
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
