@@ -1,0 +1,24 @@
+# Mac autosave
+.DS_Store
+
+# Emacs and AucTex autosaves
+*~
+auto/
+
+# LaTeX output
+*.aux
+*.bcf
+*.log
+*.nav
+*.out
+*.pdf
+*.xml
+*.snm
+*.toc
+*.gz
+*.bbl
+*.blg
+*.vrb
+
+
+
