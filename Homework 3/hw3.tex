@@ -1,0 +1,489 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{titling}
+
+% Header and footer.
+\pagestyle{headandfoot}
+\runningheadrule
+\runningfootrule
+\runningheader{CS 113 Spring 201}{HW 3: Inference and Relations}{\theauthor}
+\runningfooter{}{Page \thepage\ of \numpages}{}
+\firstpageheader{}{}{}
+
+\boxedpoints
+\printanswers
+
+\newcommand\union\cup
+\newcommand\interx\cap
+
+\graphicspath{{images/}}
+
+\title{Homework 3: Inference and Relations}
+\author{isomorphic-predicate}  % replace with your team name
+\date{CS/MATH 113 Discrete Mathematics\\Habib University, Spring 2022}
+
+\begin{document}
+\maketitle
+
+\begin{questions}
+
+  \section{Inference}
+  
+\question Prove the following arguments using inference rules. Mention the rule(s) that you use at each step.
+  \begin{parts}
+    
+  \part[5] $ $\\
+    \begin{tabular}{ll}
+      P1 &  If it is Sunday today, then we play cricket or basketball.\\
+      P2 &  If the basketball field is occupied, we don't play basketball.\\
+      P3 &  It is Sunday today, and the basketball field is occupied.    \\
+      \hline
+      C & We play cricket or volleyball. 
+    \end{tabular}
+    \begin{solution}
+      % Write your solution here
+      p = It is Sunday
+      \newline q = we play Cricket
+      \newline r = we play Basketball
+      \newline s = Basketball field is occupied
+      \newline t = we play Volleyball
+      \newline
+      \newline (1) $p \implies q \lor r$ (premise)
+      \newline (2) $s \implies \neg r$ (premise)
+      \newline (3) $p \land s$ (premise)
+      \newline (4) $s$ (simplification by using 3)
+      \newline (5) $\neg r$ (Modus Ponens by using 2 and 5)
+      \newline (6) $p$ (Simplification by using 1)
+      \newline (7) $q \lor r$ (Modus Ponens by using 1 and 7)
+      \newline (8) $q$ (Simplification by using 7)
+      \newline
+      \newline $\therefore q \lor t$ (Addition by using 8) 
+    \end{solution}
+    
+  \part[10]  $ $\\
+    \begin{tabular}{ll}
+      P1 &  Ahmed failed the course, but attended every lecture. \\
+      P2 &  Everyone who did the homework every week passed the course. \\
+      P3 &  If a student passed the course, then they did some of the homework.\\
+      \hline
+      C & Not every student did every homework assignment.
+    \end{tabular}
+
+    \begin{solution}
+      % Write your solution here
+      A = x is all students
+      \newline (1) P(x) = x did the homework in every week
+      \newline (2) Q(x) = x passed the course
+      \newline (3) R(x) = x did some of the homework
+      \newline (4) S(x) = x attended every lecture
+      \newline
+      \newline 1. $\neg Q (Ahmed) \land S(Ahmed)$ (premise)
+      \newline 2. $\forall x (P(x) \implies Q(x))$ (premise)
+      \newline 3. $\forall x(Q(x) \implies R(x))$ (premise)
+      \newline 4. $\neg Q(Ahmed)$ (Simplification using 1)
+      \newline 5. $P(a) \implies Q(a)$ (Universal Instantiation by using 2)
+      \newline 6. $\neg P(a)$ (Modus Tollens by using 4 and 5)
+      \newline 7. $\exists (\neg P(a)) $ (Universal Generalization using 6)
+      \newline
+      \newline $\therefore \neg\forall x(P(x))$ (De Morgan's Law using 7)
+
+    \end{solution}
+  \end{parts}
+
+\question[5]
+  Consider the statement: The remainder of the square of any odd number when divided by 4 is 1.
+  
+  \begin{parts}
+  \part[5] Write the above statement using predicate logic notation and prove it.
+    \begin{solution} 
+      % Write your solution here
+      U = all Real Numbers
+      \newline $P(x)$ = x is odd
+      \newline Q(x) = square of x gives remainder 1 when divided by 4
+      \newline $P(x) \implies Q(x)$
+      \newline
+      \newline x is odd, therefore x = 2n+1, where $n \in Z$
+      \newline $x = 2n+1$ (Premise and Definition of Odd Numbers)
+      \newline $x^(2) = 4n^(2) + 4n + 1 $ (Squaring on Both Sides)
+      \newline $x^(2) = 4(n^(2)+n)+1$ 
+      \newline $k = n^(2) + n$ (Substitution)
+      \newline $k = n(n+1)$ (k is even)
+      \newline
+      \newline $\therefore 4k+1$
+      \newline Since k is even and square of x is odd, remainder will be 1 when divided by 4
+
+    \end{solution}
+    
+  \part[5] Write the statement from above using a bi-conditional instead of a conditional. Prove whether the new statement holds.
+    \begin{solution}
+      % Write your solution here
+      $P(x) \Longleftrightarrow Q(x)$
+      \newline Forward and backward statement both are true. Forward was proven in part a
+      \newline $x^(2) = 4(n^(2) + n)+1$ (Premise)
+      \newline $k = n^(2)+ n$ (Substitution)
+      \newline $k = n(n+1)$ (k is even)
+      \newline $x^(2) = 4n^(2) + 4n + 1$
+      \newline $x^(2) = (2n+1)^2$
+      \newline $x = 2n + 1$ (x is odd)
+      \newline Backward direction is also true, thus bi-conditional statement is True.
+    \end{solution}
+  \end{parts}
+
+\question[5]
+  Show that these statements about the real number $x$ are equivalent: (i) x is irrational, (ii)  $\frac{x}{2}$ is irrational. Which proof method did you use?
+
+  \begin{solution}
+    % Write your solution here
+    U = x is all real Numbers
+    \newline P(x) = x is irrational 
+    \newline Q(x) = $x/2$ is irrational
+    \newline
+    \newline $P(x) \rightarrow Q(x)$
+    \newline $x/2 = p/q$
+    \newline $x/2 = p/2q$
+    \newline
+    \newline $Q(x) \rightarrow P(x)$
+    \newline $\neg P(x) \rightarrow \neg Q(x)$
+    \newline $x = p/q$
+    \newline $x/2 = (p/q)/2 = 2p/q$
+    \newline
+    \newline p and q are integers, therefore x and x/2 are rational, hence true,
+    \newline hence the bi-conditional statement is proven
+  \end{solution}
+
+\question This question refers to the \textit{tiling} or \href{https://en.wikipedia.org/wiki/Tessellation}{\textit{tessellation}} operation.
+  
+  \begin{minipage}{0.5 \linewidth}
+    Given a standard checkerboard and dominoes, answer the following questions. Explain your answer for each question.
+    \begin{center}
+      \includegraphics[width= 0.15\textwidth]{dominos}
+    \end{center}
+  \end{minipage} 
+  \begin{minipage}{0.5 \linewidth}\begin{center}
+      \includegraphics[width=0.6 \textwidth]{checkerboard} \end{center}
+  \end{minipage}
+  \begin{parts}
+  \part[5] Can we tile the standard checkerboard using dominoes?
+    \begin{solution}
+      % Write your solution here
+      Yes, it is possible to do it. The checkerboard is made out of 8x8 tiles which is 64 
+      \newline which is an even number. The dominos are made up of two tiles and their cardiality
+      \newline is even too. Therefore, $64/2 = 32$. So, exactly 32 dominos will be needed. It is upto
+      \newline us if we want to place all of them vertically or horizontally.
+    \end{solution}
+    
+  \part[5] Can we tile a checkerboard obtained by removing one of the four corner squares of a standard checkerboard?
+    \begin{solution}
+      % Write your solution here
+      No, we cannot do that. Removing 1 tile will leave behind 63 tiles which is an odd number.
+      \newline Since no domino is overlapped or broken into single tiles, it is not possible.
+    \end{solution}
+    
+  \part[5] Can we tile a board obtained by removing both the upper left and the lower right squares of a standard checkerboard? 
+    \begin{solution}
+      % Write your solution here
+      No it is not possible. Although now we have 62 tiles which is even, the places of
+      \newline tiles missing is not next to each other and the domino can only fill up space in pairs of 2 and
+      \newline cannot be broken. Therefore this cannot be done.
+    \end{solution}
+  \end{parts}
+
+\question[10]
+  The following is a murder case solved by Sherlock Holmes, in “A Study
+  in Scarlet” :\\
+  \textit{“And now we come to the great question as to the reason why. Robbery
+    has not been the object of the murder, for nothing was taken. Was it
+    politics, then, or was it a woman?  That is the question which confronted
+    me. I was inclined from the first to the latter supposition. Political
+    assassins are only too glad to do their work and fly. This murder had, on
+    the contrary, been done most deliberately, and the perpetrator has left
+    his tracks all over the room, showing he had been
+    there all the time.”}\\
+  From these, Sherlock Holmes concluded: ``It was a woman''.  Translate the
+  above argument to statements in predicate logic and prove its validity.
+  \begin{solution}
+    % Write your solution here
+    p = Robbery was not the object of the murder
+    \newline q = nothing was taken
+    \newline r = it is politics
+    \newline s = it is woman
+    \newline t = assassin does his work, leaves immediately and leaves no marks
+    (1) $p \implies q$ (premise) 
+    \newline (2) $r \lor s$ (premise)
+    \newline (3) $r \implies t$ (premise)
+    \newline (4) $ \neg t$ (premise)
+    \newline (5) $\neg r$ (Modus Tollens with 3 and 4)
+    \newline $\therefore s$ (Disjunctive Syllogism with 2 and 5)
+  \end{solution}
+  
+  \section{Equivalence Relation}
+  
+\question Prove or disprove whether each of the relations represented below is an equivalence relation.
+  \begin{parts}
+  \part[5] $R \text{ on } \mathbb{R} = \{ (x,y) \mid xy\geq 0\}$
+  \part[5] $R \text{ on } \mathbb{R} = \{ (x,y) \mid x = 1\}$
+  \part[5] $\begin{bmatrix} 1 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \\1 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \end{bmatrix}$
+  \part[5] $\begin{bmatrix} 1 & 1 & 1 & 0 \\ 1 & 1 & 1 & 0 \\ 1 & 1 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}$
+  \part[5] $R_1 \interx R_2$ where $R_1$ and $R_2$ are equivalence relations on a set, $S$.
+  \end{parts}
+  \begin{solution}
+    % Write your solutions here
+    \begin{parts}
+    \part
+      Symmetric:
+      \newline It is  symmetric because xy = yx $\geq$ 0 according to the commutative property of multiplication
+      \newline
+      \newline Reflexive?
+      \newline It is reflexive because when x.x = $x^(2) \geq 0$ is always true.
+      \newline 
+      \newline Transitive? 
+      \newline It is not transitive because when x = -1, y = 0, z = 1, then $xy \geq 0$, $yx \geq 0$ and $xz \not \geq 0$
+      \newline
+      \newline Therefore, it is not an equivalence relation
+    \part
+      Symmetric?
+      \newline It is not symmetric because x = 1 and y = 0, then, (x,y) is True, but (y,x) is not True.
+      \newline
+      \newline Reflexive?
+      \newline It is not reflexive as when x=0 and y=0, then (x,y) will not be True.
+      \newline
+      \newline Transitive?
+      \newline It is transitive as we know that (x,y) and (y,z) is True, x=1, hence (x,z) will also be True.
+      \newline
+      \newline Therfore, the relation is not an equivalence relation
+    \part
+      Symmetric?
+      \newline It is symmetric because all the 1s at postion $i,j$ also exist at $j,i$
+      \newline
+      \newline Reflexive?
+      \newline It is reflexive as the main diagonal in matrix contains 1s.
+      \newline
+      \newline Transitive?
+      \newline It is transitive bcause the boolean product with itself is equal to that of the original matrix.
+      \newline Since it is reflexive, symmetric, and transitive, thus is it indeed an equivalence relation.
+    \part
+      Symmetric?
+      \newline It is symmetric as all the 1s at position i,j are also existing at j,i.
+      \newline
+      \newline Reflexive? 
+      \newline It is reflexive as the main diagonal of the matrix contains 1s.
+      \newline
+      \newline Transitive?
+      \newline It is transitive because the boolan product of the matrix with itself is equal to the original matrix.
+      \newline
+      \newline Since it it symmetric, transitive, and reflexive, thus it is indeed an equivalence relation.
+    \part
+      Symmetric?
+      \newline $(x,y) \in R1$ leads to $(y,x) \in R1$ and $(x,y) \in R2$ leads to $(y,x) \in R2$, thus we can say 
+      \newline that $(x,y) \in R1 \cap R2$ leads to $(y,x) \in R1 \cap R2$. Therefore the intersection is symmetric.
+      \newline Reflexive?
+      \newline $\forall x \in S: (x, x) \in R1$ and $(x, x) \in R2$. Since both are reflexive, $(x,x) \in R1 \cap R2$
+      \newline 
+      \newline Transitive? 
+      \newline $\forall x \in S, \forall y \in S, \forall z \in S$
+      \newline $((x,y) \in R1) \land ((y,z) \in R1) $ leads to $(x,z) \in R1$, and
+      \newline $((x,y) \in R2) \land ((y,z) \in R2) $ leads to $(x,z) \in R2$
+      \newline From the above two statements, we can say that $((x,y) \in R1 \cap R2) \land ((y,z) \in R1 \cap R2) $ leads to $(x,z) \in R1 \cap R2$
+      \newline Therefore, the intersection is transitive.
+      \newline
+      \newline Since, they can be all transitive, reflexive, and symmetric, there can be an equivalence relation
+    \end{parts}    
+  \end{solution}
+
+  \begin{EnvUplevel}
+    Let $R$ be a relation from a set A to a set B. The \textit{inverse relation} from $B$ to $A$, denoted by $R^{-1}$, is the set of ordered pairs $\{(b, a) \mid (a, b) \in R\}$. The \textit{complementary relation} $\overline{R}$ is the set of ordered pairs $\{(a, b) \mid (a, b) \not\in R\}$. A relation $R$ on the set $A$ is \textit{irreflexive} if $\forall a \in A\colon (a, a) \not\in R$. That is, $R$ is irreflexive if no element in $A$ is related to itself.
+  \end{EnvUplevel}
+
+  \question 
+  \begin{parts}
+  \part[5] Show that the relation $R$ on a set $A$ is symmetric if and only if $R = R^{-1}$.
+    \begin{solution}
+
+      $From a set $A$ to $B$, $R$ = \{(a, b) \| a \in $A$ \land $b$ \in $B$. \}
+      \newline
+      Its inverse R^{-1} is \{(b, a)|(a, b) \in R \}
+      \newline
+      (a, b) \in R
+      \newline
+      (b, a) \in R^{-1}
+      \newline
+      a relation is symmteric iff (a, b) \in R \land (b, a) \in R. The relation is symmetric if and only if it is equal to its inverse.
+      \newline
+      R = R^{-1}$
+    \end{solution}
+
+  \part[5] Show that the relation $R$ on a set $A$ is reflexive if and only if $\overline{R}$ is irreflexive.
+    \begin{solution}
+    
+      $Assuming R is reflexive: R = \{(a, a) \| a \in R\}
+      \newline
+      From definition of complementary relations: (a, b) \notin \overline{R}
+      \newline
+      R is not reflexive, as it does not have anything from
+\{(a, a) \| a \in A \}$
+
+    \end{solution}
+
+  \part[5] Let $R$ be a relation that is reflexive and transitive. Prove that $R^n = R$ for all positive integers $n$.
+    \begin{solution}
+    
+      $To prove R^n = R, we can prove R^2 = R
+      \newline
+      To prove R^2 \subset R,(x, y) \in R^2
+      \newline
+      R^2 = R \circ R. Therefore, (x, z) \in R,(z, y) \in R
+      \newline
+      Since R is transitive, (x, z) \in R \land (z, y) \in R \implies (x, y) \in R
+      \newline
+      Hence, R^2 \subset R
+      \newline
+      To prove R \subset R^2,(x, y) \in R
+      \newline
+      Since R is transitive, (x, z) \in R \land (z, y) \in R
+      \newline
+      R^2 = R \circ R. Therefore, (x, z) \in R \land (z, y) \in R \implies (x, y) \in R^2.
+      \newline
+      Hence, R \subset R^2
+      $
+    \end{solution}
+
+  \part[5] Show that the relation $R$ on a set $A$ is transitive if and only if $R^n \subseteq R$ for all positive integers $n$.
+    \begin{solution}
+
+      $Let R^n \subset R for all positive integers. In case, n = 2, R^2 \subset R
+      \newline
+      To prove R is transitive:
+      \newline
+      Let (a, b) \in R and (b, c) \in R
+      \newline
+      Since  (a, c) \in R^2, R^2 \subset R. Therefore, (a, c) \in R.
+      \newline
+      Therefore, R is transitive
+      $
+    \end{solution}
+
+  \end{parts}
+  
+  
+\question  Given the matrix, $M_R$, for a relation, $R$, on a finite set, $A$, explain how to obtain the following matrices?
+\begin{multicols}{2}
+  \begin{parts}
+  \part[5] $M_{R^{-1}}$
+  \part[5] $M_{\overline{R}}$
+  \end{parts}
+\end{multicols}
+\begin{solution}
+  
+  \begin{parts}
+  \part In order to find the inverse of matrix M, we must swap the elements representing the rows
+  and columns in such a way that the elements representing the rows will be representing the
+  columns in the inverse matrix and elements representing the columns will represent the rows
+  in the inverse matrix. However, the 1s and 0s will not be changed.
+  \part In order to obtain the complement matrix, all the 1s will become 0s and all the 0s in the
+  matrix will become 1s.
+  \end{parts}
+\end{solution}
+\question The following questions refer to the relations, $R$ and $S$, involving the set $X = \{a, b, c\}$. Specifically, $R$ and $S$ are relations on $2^X$, the power set of $X$. For the definitions of $R$ and $S$ given below, prove whether each is an equivalence relation.
+  \begin{multicols}{2}
+    \begin{parts}
+    \part[5] $R = \{(A, B) \mid |A| = |B|\}$.
+    \part[5] $S = \{(A, B) \mid |A| < |B|\}$.
+    \end{parts}
+  \end{multicols}
+  \begin{solution}
+    % Write your solutions here
+    \begin{parts}
+    \part 
+    \part 
+    \end{parts}
+  \end{solution}
+
+\question[5] A partition $P_1$ is called a \textit{refinement} of the partition $P_2$ if every set in $P_1$ is a subset of one of the sets in $P_2$. Given equivalence relations, $R_1$ and $R_2$, on a set, $A$, and the corresponding partitions, $P_1$ and $P_2$, show that $R_1 \subseteq R_2$ if and only if $P_1$ is a refinement of $P_2$.
+  \begin{solution}
+    % Write your solution here
+  \end{solution}
+
+  \section{Ordering}
+  
+\question Prove or disprove whether each of the relations represented below is a partial order.
+  \begin{multicols}{3}
+    \begin{parts}
+    \part[5] $\begin{bmatrix} 1 & 1 & 1 \\ 1 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$
+    \part[5] $\begin{bmatrix} 1 & 1 & 1 & 0 \\ 1 & 1 & 1 & 0 \\ 0 & 0 & 1 & 1 \\ 1 & 1 & 0 & 1 \end{bmatrix}$
+    \end{parts}
+  \end{multicols}
+  \begin{solution}
+    % Write your solutions here
+    \begin{parts}
+    \part 
+    \part 
+    \end{parts}
+  \end{solution}
+  
+\question[5] Given a poset $(S, R)$, its \textit{dual} is $(S,R^{-1})$. Show that the dual is also a poset. 
+  \begin{solution}
+    % Write your solution here    
+  \end{solution}
+  
+\question Answer the following questions for the partial order represented by the given Hasse diagram.
+  
+  \begin{minipage}{.3\textwidth}
+    \begin{tikzpicture}[scale=0.8]
+      \tikzstyle{node} = [draw,circle,fill=black,text=white]
+
+      \def\nodes{a,b,c,d,e,f,i,h,g,j,k}
+      \foreach \n/\p
+      [count=\i from 0,
+      evaluate= \i as \x using {2*Mod(\i,3)},
+      evaluate= \i as \y using {2*int(\i/3)}]
+      in \nodes {
+        \node[node](\n) at (\x,\y) {\n};
+      }
+      \node[node](l) at (0,8) {l};
+      \node[node](m) at (4,8) {m};
+
+      \draw[thick,-] (a) -- (d) -- (i) -- (j) -- (h) -- (d) -- (b) -- (e) -- (h) -- (k) -- (l) -- (j);
+      \draw[thick,-] (c) -- (f) -- (g) -- (k) -- (m);
+      
+    \end{tikzpicture}
+  \end{minipage}
+  \begin{minipage}{.65\textwidth}
+    \begin{parts}
+    \part[2] Find the maximal elements.
+    \part[2] Find the minimal elements.
+    \part[1] Is there a greatest element? If so, what is it?
+    \part[1] Is there a least element? If so, what is it?
+    \part[2] Find all upper bounds of $\{a,b,c\}$.
+    \part[1] Find the least upper bound of $\{a,b,c\}$, if it exists.
+    \part[2] Find all lower bounds of $\{f,g,h\}$.
+    \part[1] Find the greatest lower bound of $\{f,g,h\}$, if it exists.
+    \end{parts}
+  \end{minipage}
+  \begin{solution}
+    % Write your solutions here
+    \begin{parts}
+    \part 
+    \part 
+    \part 
+    \part 
+    \part 
+    \part 
+    \part 
+    \part 
+    \end{parts}
+  \end{solution}
+  
+\end{questions}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
